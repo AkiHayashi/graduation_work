@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  root 'tops#index'
   devise_for :users
-  root to: "users#index"
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
