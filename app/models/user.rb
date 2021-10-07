@@ -3,16 +3,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :authentication_keys => [:login_name]
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+    find_or_create_by!(login_name: 'ゲスト') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.login_name = "ゲスト"
     end
   end
   def self.admin_guest
-    find_or_create_by!(email: 'admin_guest@example.com') do |user|
+    find_or_create_by!(login_name: "ゲスト管理者") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.admin = true
-      user.login_name = "ゲスト管理者"
     end
   end
 
