@@ -8,6 +8,37 @@
     <%= f.text_field :login_name, autofocus: true %>
   </div>
 
+  <%= f.fields_for :account do |a| %>
+    <div class="field">
+      <%= a.label :name %><br />
+      <%= a.text_field :name %>
+    </div>
+    <div class="field">
+      <%= a.label :birth_date %><br />
+      <%= a.date_field :birth_date %>
+    </div>
+    <div class="field">
+      <%= a.label :icon %><br />
+      <%= a.text_field :icon %>
+    </div>
+    <div class="field">
+      <%= a.label :mail %><br />
+      <%= a.text_field :mail %>
+    </div>
+    <div class="field">
+      <%= a.label :address %><br />
+      <%= a.text_field :address %>
+    </div>
+    <div class="field">
+      <%= a.label :tel %><br />
+      <%= a.text_field :tel%>
+    </div>
+    <div class="field">
+      <%= a.label :allergy %><br />
+      <%= a.text_field :allergy%>
+    </div>
+  <% end %>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>
