@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :authentication_keys => [:login_name]
+
+  has_one :account, dependent: :destroy
+  accepts_nested_attributes_for :account
+
   def self.guest
     find_or_create_by!(login_name: 'ゲスト') do |user|
       user.password = SecureRandom.urlsafe_base64
