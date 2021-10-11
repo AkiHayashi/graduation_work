@@ -1,18 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show]
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
-    if current_user.update(user_params)
-      redirect_to user_path(current_user)
-    else
-      redirect_to edit_user_path(current_user)
-    end
   end
 
   private
@@ -20,7 +9,4 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
-  def user_params
-    params.fetch(:user, {}).permit(:login_name)
-  end
 end
