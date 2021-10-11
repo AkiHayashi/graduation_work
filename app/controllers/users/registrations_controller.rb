@@ -6,20 +6,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :ensure_normal_user, only: %i[update destroy]
 
   def ensure_normal_user
-    if resource.login_name == 'ゲスト' || 'ゲスト管理者'
+    # binding.irb
+    if resource.login_name.downcase == "ゲスト" || resource.login_name.downcase == "ゲスト管理者"
       redirect_to root_path, alert: 'ゲストユーザーは編集・削除できません。'
     end
   end
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    build_resource({})
+    resource.build_account
+    respond_with resource
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -46,24 +49,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-
   # If you have extra params to permit, append them to the sanitizer.
+  def sign_up_params
+    devise_parameter_sanitizer.sanitize(:sign_up) { |user| user.permit(permitted_attributes) }
+  end
+
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:login_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: permitted_attributes)
+  end
+
+  def permitted_attributes
+    [
+      :login_name,
+      :password,
+      :password_confirmation,
+      profile_attributes: %i[name birth_date icon mail address tel allergy]
+    ]
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:login_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: permitted_attributes)
   end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    super(resource)
+  end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    super(resource)
+  end
 end
