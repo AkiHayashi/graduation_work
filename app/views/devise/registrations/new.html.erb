@@ -32,7 +32,7 @@
     </div>
     <div class="field">
       <%= a.label :icon %><br />
-      <%= a.text_field :icon %>
+      <%= a.file_field :icon %>
     </div>
     <div class="field">
       <%= a.label :mail %><br />
@@ -48,7 +48,7 @@
     </div>
     <div class="field">
       <%= a.label :allergy %><br />
-      <%= a.text_field :allergy%>
+      <%= a.select :allergy, Account.allergies.keys.to_a,{} %>
     </div>
   <% end %>
 

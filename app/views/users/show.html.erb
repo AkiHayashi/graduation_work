@@ -1,8 +1,14 @@
 <h1>わたしのページ</h1>
+<p>プロフィール画像
+<% if @user.account.icon? %>
+  <img src='<%= @user.account.icon %>' class="icon" alt="ユーザーアイコン">
+<% else %>
+  <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+<% end %>
+</p>
 <p>ログイン名 : <%= @user.login_name %></p>
-<p>名前: <%= @user.account.name %></p>
+<p>本名: <%= @user.account.name %></p>
 <p>生年月日: <%= @user.account.birth_date %></p>
-<p>プロフィール画像: <%= @user.account.icon %></p>
 <p>住所: <%= @user.account.address %></p>
 <p>電話番号: <%= @user.account.tel %></p>
 <p>メールアドレス: <%= @user.account.mail %></p>

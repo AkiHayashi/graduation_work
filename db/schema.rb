@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_10_08_050842) do
   create_table "accounts", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.date "birth_date", null: false
-    t.string "icon", default: "", null: false
+    t.string "icon"
     t.string "mail", default: "", null: false
     t.string "address", default: "", null: false
     t.string "tel", default: "", null: false
