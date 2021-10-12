@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'tops#index'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show]
+  resources :medical_histories
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

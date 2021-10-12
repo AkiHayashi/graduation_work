@@ -2,6 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :authentication_keys => [:login_name]
 
+  has_many :medical_histories, dependent: :destroy
   has_one :account, dependent: :destroy
   accepts_nested_attributes_for :account
 
