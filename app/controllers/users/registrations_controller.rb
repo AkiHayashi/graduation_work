@@ -29,6 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     build_resource({})
     resource.build_account
+    @user.account.icon.cache! unless @user.account.icon.blank?
   end
 
   # PUT /resource
@@ -65,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :login_name,
       :password,
       :password_confirmation,
-      profile_attributes: %i[name birth_date icon mail address tel allergy]
+      profile_attributes: %i[name birth_date icon icon_cache mail address tel allergy id]
     ]
   end
 
@@ -77,6 +78,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     super(resource)
+  end
+
+  def after_update_path_for(resource)
+    user_path(current_user.id)
   end
 
   # The path used after sign up for inactive accounts.

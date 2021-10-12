@@ -19,7 +19,13 @@
     </div>
     <div class="field">
       <%= a.label :icon %><br />
-      <%= a.file_field :icon %>
+      <%= a.file_field :icon, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
+      <%= a.hidden_field :icon_cache %>
+      <% if @user.account.icon? %>
+        <%= image_tag @user.account.icon.url, id: 'preview', class: "icon", alt: "ユーザーアイコン", size: '300x200'%> 
+      <% else %>
+        <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", id: "preview" %>
+      <% end %>
     </div>
     <div class="field">
       <%= a.label :mail %><br />
@@ -35,7 +41,7 @@
     </div>
     <div class="field">
       <%= a.label :allergy %><br />
-      <%= a.text_field :allergy%>
+      <%= a.select :allergy, Account.allergies.keys.to_a,{} %>
     </div>
   <% end %>
 
