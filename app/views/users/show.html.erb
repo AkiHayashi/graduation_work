@@ -1,9 +1,9 @@
 <h1>わたしのページ</h1>
 <p>プロフィール画像
 <% if @user.account.icon? %>
-  <img src='<%= @user.account.icon %>' class="icon" alt="ユーザーアイコン">
+  <%= image_tag @user.account.icon.url, class: "icon", alt: "ユーザーアイコン" %>
 <% else %>
-  <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+  <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン" %>
 <% end %>
 </p>
 <p>ログイン名 : <%= @user.login_name %></p>
@@ -14,5 +14,6 @@
 <p>メールアドレス: <%= @user.account.mail %></p>
 <p>お薬のアレルギー: <%= @user.account.allergy %></p>
 
-<%= link_to "既往歴", medical_histories_path %>
+<%= link_to "既往歴", medical_histories_path %><br>
+
 <%= link_to "プロフィール編集", edit_user_registration_path %>
