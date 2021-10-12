@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @medical_history.name %>
+</p>
+
+<p>
+  <strong>Start on:</strong>
+  <%= @medical_history.start_on %>
+</p>
+
+<p>
+  <strong>Surgery:</strong>
+  <%= @medical_history.surgery %>
+</p>
+
+<p>
+  <strong>Surgery on:</strong>
+  <%= @medical_history.surgery_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_medical_history_path(@medical_history) %> |
+<%= link_to 'Back', medical_histories_path %>

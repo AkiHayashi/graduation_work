@@ -14,4 +14,5 @@
 <p>メールアドレス: <%= @user.account.mail %></p>
 <p>お薬のアレルギー: <%= @user.account.allergy %></p>
 
+<%= link_to "既往歴", medical_histories_path %>
 <%= link_to "プロフィール編集", edit_user_registration_path %>
