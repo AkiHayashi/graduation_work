@@ -4,7 +4,7 @@ class MedicalHistoriesController < ApplicationController
 
   # GET /medical_histories
   def index
-    @medical_histories = MedicalHistory.all
+    @medical_histories = current_user.medical_histories
   end
 
   # GET /medical_histories/1
@@ -13,17 +13,20 @@ class MedicalHistoriesController < ApplicationController
 
   # GET /medical_histories/new
   def new
-    @medical_history = MedicalHistory.new
+    # @medical_history = MedicalHistory.new
+    @medical_history = current_user.medical_histories.build
+    @hospital = @medical_history.hospitals.build
   end
 
   # GET /medical_histories/1/edit
   def edit
+    @hospital = @medical_history.hospitals.build
   end
 
   # POST /medical_histories
   def create
     @medical_history = current_user.medical_histories.build(medical_history_params)
-
+    @medical_history.hospitals.each { |hospital| hospital.user_id = current_user.id }
     if @medical_history.save
       redirect_to @medical_history, notice: 'Medical history was successfully created.'
     else
@@ -33,7 +36,16 @@ class MedicalHistoriesController < ApplicationController
 
   # PATCH/PUT /medical_histories/1
   def update
+    # @medical_history.user_id = current_user.id
+    # binding.irb
+
+    num = medical_history_params[:hospitals_attributes].keys.count - @medical_history.hospitals.count
+
+    # @medical_history.hospitals.build
+    # @medical_history.hospitals.each { |hospital| hospital.user_id = current_user.id }
+    # medical_history_params[:hospitals_attributes]
     if @medical_history.update(medical_history_params)
+      @hospital = current_user.hospitals.build(user_id: current_user.id)
       redirect_to @medical_history, notice: 'Medical history was successfully updated.'
     else
       render :edit
@@ -54,6 +66,7 @@ class MedicalHistoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def medical_history_params
-      params.require(:medical_history).permit(:name, :start_on, :surgery, :surgery_on, :user_id)
+      params.require(:medical_history).permit(:name, :start_on, :surgery, :surgery_on, :user_id,
+      hospitals_attributes: %i[id name address tel _destroy]).merge(user_id: current_user.id)
     end
 end

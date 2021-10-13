@@ -1,0 +1,9 @@
+<div class="nested-fields well well-compact">
+  <div class="form-group">
+    <%= f.input :name %><br>
+    <%= f.input :address %><br>
+    <%= f.input :tel %><br>
+    <%= f.hidden_field :user_id %>
+    <%= link_to_remove_association "remove hospital", f %>
+  </div>
+</div>

@@ -10,6 +10,11 @@ gem 'rails_admin-i18n'
 gem 'cancancan'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'cocoon'
+gem "jquery-rails"
+gem 'simple_form'
+gem 'bootstrap'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
 # Use postgresql as the database for Active Record
@@ -34,8 +39,6 @@ gem 'turbolinks', '~> 5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

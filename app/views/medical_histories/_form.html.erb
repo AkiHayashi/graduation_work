@@ -1,4 +1,4 @@
-<%= form_with(model: medical_history, local: true) do |form| %>
+<%= simple_form_for @medical_history do |f| %>
   <% if medical_history.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(medical_history.errors.count, "error") %> prohibited this medical_history from being saved:</h2>
@@ -12,30 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.input :name %>
   </div>
 
   <div class="field">
-    <%= form.label :start_on %>
-    <%= form.date_select :start_on %>
+    <%= f.input :start_on %>
   </div>
 
   <div class="field">
-    <%= form.label :surgery %>
-    <%= form.text_field :surgery %>
+    <%= f.input :surgery %>
   </div>
 
   <div class="field">
-    <%= form.label :surgery_on %>
-    <%= form.date_select :surgery_on, include_blank: true %>
+    <%= f.input :surgery_on, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.hidden_field :user_id %>
+    <%= f.hidden_field :user_id %>
+  </div>
+
+  <h3>Hospitals</h3>
+  <div id="hospitals">
+    <%= f.simple_fields_for :hospitals do |hospital| %>
+      <%= render 'hospital_fields', f: hospital %>
+    <% end %>
+    <div id="links">
+      <%= link_to_add_association 'add hospital',f, :hospitals %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
