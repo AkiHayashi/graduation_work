@@ -3,8 +3,10 @@ class HospitalsController < ApplicationController
 
   # GET /hospitals
   def index
-    @hospitals = current_user.hospitals
     @medical_histories = current_user.medical_histories
+    @hospitals = []
+    @medical_histories.each { |history| @hospitals << history.hospitals }
+    @hospitals.flatten!
   end
 
   # GET /hospitals/1

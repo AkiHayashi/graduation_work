@@ -34,12 +34,10 @@ ActiveRecord::Schema.define(version: 2021_10_13_041733) do
     t.string "name"
     t.string "address"
     t.string "tel"
-    t.bigint "user_id"
     t.bigint "medical_history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["medical_history_id"], name: "index_hospitals_on_medical_history_id"
-    t.index ["user_id"], name: "index_hospitals_on_user_id"
   end
 
   create_table "medical_histories", force: :cascade do |t|
@@ -72,6 +70,5 @@ ActiveRecord::Schema.define(version: 2021_10_13_041733) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "hospitals", "medical_histories"
-  add_foreign_key "hospitals", "users"
   add_foreign_key "medical_histories", "users"
 end

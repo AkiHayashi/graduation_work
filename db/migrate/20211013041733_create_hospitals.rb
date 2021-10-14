@@ -4,7 +4,6 @@ class CreateHospitals < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.string :tel
-      t.references :user, foreign_key: true
       t.references :medical_history, foreign_key: true
       t.timestamps
     end

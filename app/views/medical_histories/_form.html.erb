@@ -27,10 +27,6 @@
     <%= f.input :surgery_on, include_blank: true %>
   </div>
 
-  <div class="field">
-    <%= f.hidden_field :user_id %>
-  </div>
-
   <h3>Hospitals</h3>
   <div id="hospitals">
     <%= f.simple_fields_for :hospitals do |hospital| %>
