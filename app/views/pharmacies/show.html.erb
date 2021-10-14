@@ -1,0 +1,22 @@
+<p>
+  <strong>Name:</strong>
+  <%= @pharmacy.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @pharmacy.address %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @pharmacy.tel %>
+</p>
+
+<p>
+  <strong>薬品名:</strong>
+  <%= @pharmacy.medication_history.name %>
+</p>
+
+<%= link_to 'Edit', edit_pharmacy_path(@pharmacy) %> |
+<%= link_to 'Back', pharmacies_path %>
