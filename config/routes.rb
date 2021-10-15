@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :diaries
   root 'tops#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
