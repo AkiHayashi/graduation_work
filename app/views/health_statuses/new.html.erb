@@ -2,4 +2,4 @@
 
 <%= render 'form', health_status: @health_status %>
 
-<%= link_to 'Back', health_statuses_path %>
+<%= link_to 'Back', menu_health_status_path(id: current_user.id) %>

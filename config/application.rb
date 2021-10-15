@@ -21,7 +21,8 @@ module Kenkoutecho
     end
     
     config.time_zone = 'Tokyo'
-    config.active_record.default_timezone = :local
+    config.active_record.default_timezone = :UTC
+    
 
 
     # Settings in config/environments/* take precedence over those specified here.

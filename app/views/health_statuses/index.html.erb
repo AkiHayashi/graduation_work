@@ -1,5 +1,12 @@
 <h1>Health Statuses</h1>
 
+<h3>血圧（上）</h3>
+<%= line_chart @health_statuses.group_by_day(:created_at).average(:systolic), width: "800px", height: "300px"%>
+<h3>血圧（下）</h3>
+<%= line_chart @health_statuses.group_by_day(:created_at).average(:diastolic), width: "800px", height: "300px"%>
+<h3>脈拍</h3>
+<%= line_chart @health_statuses.group_by_day(:created_at).average(:pulse), width: "800px", height: "300px"%>
+
 <table>
   <thead>
     <tr>

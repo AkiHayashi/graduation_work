@@ -25,6 +25,7 @@ class HealthStatusesController < ApplicationController
     @health_status = current_user.health_statuses.build(health_status_params)
 
     if @health_status.save
+      binding.irb
       redirect_to @health_status, notice: 'Health status was successfully created.'
     else
       render :new
