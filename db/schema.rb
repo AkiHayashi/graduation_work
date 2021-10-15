@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_050244) do
+ActiveRecord::Schema.define(version: 2021_10_15_013823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 2021_10_14_050244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "health_statuses", force: :cascade do |t|
+    t.integer "systolic"
+    t.integer "diastolic"
+    t.integer "pulse"
+    t.text "condition", default: "", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_health_statuses_on_user_id"
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -90,6 +101,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_050244) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "health_statuses", "users"
   add_foreign_key "hospitals", "medical_histories"
   add_foreign_key "medical_histories", "users"
   add_foreign_key "medication_histories", "users"

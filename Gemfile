@@ -14,6 +14,8 @@ gem 'cocoon'
 gem "jquery-rails"
 gem 'simple_form'
 gem 'bootstrap'
+gem 'chartkick'
+gem 'groupdate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'

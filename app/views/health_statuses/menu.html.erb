@@ -1,0 +1,4 @@
+<h1>健康管理</h1>
+
+<%= link_to "健康状態を入力する", new_health_status_path(id: current_user.id) %>
+<%= link_to "過去の健康記録を見る", health_statuses_path(id: current_user.id) %>
