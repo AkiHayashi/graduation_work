@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :medical_histories, dependent: :destroy
   has_many :medication_histories, dependent: :destroy
+  has_many :health_statuses, dependent: :destroy
   has_one :account, dependent: :destroy
   accepts_nested_attributes_for :account
 

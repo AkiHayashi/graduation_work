@@ -1,0 +1,31 @@
+<h1>Health Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Systolic</th>
+      <th>Diastolic</th>
+      <th>Pulse</th>
+      <th>Condition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @health_statuses.each do |health_status| %>
+      <tr>
+        <td><%= health_status.systolic %></td>
+        <td><%= health_status.diastolic %></td>
+        <td><%= health_status.pulse %></td>
+        <td><%= health_status.condition %></td>
+        <td><%= link_to 'Show', health_status %></td>
+        <td><%= link_to 'Edit', edit_health_status_path(health_status) %></td>
+        <td><%= link_to 'Destroy', health_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Health Status', new_health_status_path %>

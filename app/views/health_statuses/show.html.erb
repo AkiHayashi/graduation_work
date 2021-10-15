@@ -1,0 +1,22 @@
+<p>
+  <strong>Systolic:</strong>
+  <%= @health_status.systolic %>
+</p>
+
+<p>
+  <strong>Diastolic:</strong>
+  <%= @health_status.diastolic %>
+</p>
+
+<p>
+  <strong>Pulse:</strong>
+  <%= @health_status.pulse %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @health_status.condition%>
+</p>
+
+<%= link_to 'Edit', edit_health_status_path(@health_status) %> |
+<%= link_to 'Back', health_statuses_path %>
