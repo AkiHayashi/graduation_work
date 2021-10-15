@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pharmacies
+  resources :medication_histories
   resources :hospitals
   root 'tops#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

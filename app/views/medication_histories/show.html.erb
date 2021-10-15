@@ -1,0 +1,30 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @medication_history.name %>
+</p>
+
+<p>
+  <strong>Usage:</strong>
+  <%= @medication_history.usage %>
+</p>
+
+<p>
+  <strong>Prescription on:</strong>
+  <%= @medication_history.prescription_on %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @medication_history.note %>
+</p>
+
+<div>
+  <strong>かかりつけ薬局:</strong>
+  <% @medication_history.pharmacies.each do |pharmacy| %>
+    <%= pharmacy.name %>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_medication_history_path(@medication_history) %> |
+<%= link_to 'Back', medication_histories_path %>

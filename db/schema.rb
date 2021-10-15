@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_041733) do
+ActiveRecord::Schema.define(version: 2021_10_14_050244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,27 @@ ActiveRecord::Schema.define(version: 2021_10_13_041733) do
     t.index ["user_id"], name: "index_medical_histories_on_user_id"
   end
 
+  create_table "medication_histories", force: :cascade do |t|
+    t.string "name"
+    t.integer "usage", default: 0, null: false
+    t.date "prescription_on"
+    t.text "note"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_medication_histories_on_user_id"
+  end
+
+  create_table "pharmacies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "tel"
+    t.bigint "medication_history_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medication_history_id"], name: "index_pharmacies_on_medication_history_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "login_name", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -71,4 +92,6 @@ ActiveRecord::Schema.define(version: 2021_10_13_041733) do
   add_foreign_key "accounts", "users"
   add_foreign_key "hospitals", "medical_histories"
   add_foreign_key "medical_histories", "users"
+  add_foreign_key "medication_histories", "users"
+  add_foreign_key "pharmacies", "medication_histories"
 end
