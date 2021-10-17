@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:login_name, account_attributes: %i[name birth_date icon mail address tel allergy icon_cache id]])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:login_name, account_attributes: %i[name birth_date icon mail address tel allergy icon_cache id]])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:login_name, :password, :password_confirmation,account_attributes: %i[name birth_date icon mail address tel allergy icon_cache id]])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:login_name, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:login_name, :password, :password_confirmation,account_attributes: %i[name birth_date icon mail address tel allergy icon_cache id]])
   end
 end

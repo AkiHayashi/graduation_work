@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :diaries
   root 'tops#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
@@ -14,10 +13,15 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show]
+  resources :families do 
+    resources :members, only: %w(create destroy)
+  end
+
   resources :medical_histories
   resources :hospitals
   resources :medication_histories
   resources :pharmacies
+  resources :diaries
   resources :health_statuses do 
     member do
       get 'menu'

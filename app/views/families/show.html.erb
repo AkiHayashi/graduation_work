@@ -1,0 +1,29 @@
+<p>
+  <strong>Name:</strong>
+  <%= @family.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @family.image.url %>
+</p>
+
+<h2>わたしの家族</h2>
+<% @family.members.each do |member| %>
+  <tr>
+    <td><%= member.user.account.name %></td>
+    <td><%= image_tag member.user.account.icon.url, size: '100x100' %></td>
+  </tr>
+<% end %>
+<br>
+<br>
+<br>
+<h5>招待</h5>
+<%= form_with model: :member, scope: :post, url: family_members_path(@family), local: true do |form| %>
+  <%= text_field_tag :email, '', size:100, placeholder: "家族のメールアドレスを入力してください" %>
+  <%= form.button :submit %>
+<% end %>
+
+<%= link_to 'Destroy', family_path(@family), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>
