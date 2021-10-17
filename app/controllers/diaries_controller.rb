@@ -4,7 +4,10 @@ class DiariesController < ApplicationController
 
   # GET /diaries
   def index
-    @diaries = Diary.all
+    @families = current_user.families
+    @families.each {|family| @members = family.members}
+    @family_members_ids = @members.map {|member| member.user_id }
+    @diaries = Diary.where(user_id: @family_members_ids)
   end
 
   # GET /diaries/1
