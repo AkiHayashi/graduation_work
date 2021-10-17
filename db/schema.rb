@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_081944) do
+ActiveRecord::Schema.define(version: 2021_10_16_031828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2021_10_15_081944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_families_on_user_id"
   end
 
   create_table "health_statuses", force: :cascade do |t|
@@ -83,6 +92,15 @@ ActiveRecord::Schema.define(version: 2021_10_15_081944) do
     t.index ["user_id"], name: "index_medication_histories_on_user_id"
   end
 
+  create_table "members", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "family_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_members_on_family_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
   create_table "pharmacies", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -112,9 +130,12 @@ ActiveRecord::Schema.define(version: 2021_10_15_081944) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "diaries", "users"
+  add_foreign_key "families", "users"
   add_foreign_key "health_statuses", "users"
   add_foreign_key "hospitals", "medical_histories"
   add_foreign_key "medical_histories", "users"
   add_foreign_key "medication_histories", "users"
+  add_foreign_key "members", "families"
+  add_foreign_key "members", "users"
   add_foreign_key "pharmacies", "medication_histories"
 end

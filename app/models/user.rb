@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :authentication_keys => [:login_name]
 
+  has_many :members
+  has_many :families, through: :members
   has_many :medical_histories, dependent: :destroy
   has_many :medication_histories, dependent: :destroy
   has_many :health_statuses, dependent: :destroy
@@ -30,4 +32,13 @@ class User < ApplicationRecord
   def will_save_change_to_email?
     false
   end
+
+  # def self.find_or_create_by_email(email)
+  #   user = find_or_initialize_by(mail: email)
+  #   if user.new_record?
+  #     user.password = generate_password
+  #     user.save!
+  #   end
+  #   user
+  # end
 end

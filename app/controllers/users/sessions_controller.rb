@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_sign_in_params, only: [:create]
+
   def guest_sign_in
     user = User.guest
     sign_in user
@@ -20,9 +21,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -35,4 +36,18 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def configure_sign_in_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: permitted_attributes)
+  end
+
+  def permitted_attributes
+    [
+      :login_name,
+      :password,
+      :password_confirmation,
+    ]
+  end
+  
+
 end
