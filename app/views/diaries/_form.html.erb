@@ -11,7 +11,7 @@
     <%= f.file_field  :image, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*'  %>
   </div>
     <% if @diary.image? %>
-      <%= image_tag @diary.image, id: 'preview', size: '300x200'%> 
+      <%= image_tag @diary.image.url, id: 'preview', size: '300x300'%> 
     <% else %>
       <%= image_tag "default.png",id: "preview" %>
     <% end %>

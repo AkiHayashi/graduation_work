@@ -2,14 +2,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :authentication_keys => [:login_name]
 
+  has_one :account, dependent: :destroy
+  accepts_nested_attributes_for :account
   has_many :members
   has_many :families, through: :members
   has_many :medical_histories, dependent: :destroy
   has_many :medication_histories, dependent: :destroy
   has_many :health_statuses, dependent: :destroy
   has_many :diaries, dependent: :destroy
-  has_one :account, dependent: :destroy
-  accepts_nested_attributes_for :account
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_diaries, through: :favorites, source: :diary
+  
 
   def self.guest
     find_or_create_by!(login_name: 'ゲスト') do |user|
@@ -26,19 +29,29 @@ class User < ApplicationRecord
   def email_required?
     false
   end
+
   def email_changed?
     false
   end
+
   def will_save_change_to_email?
     false
   end
 
-  # def self.find_or_create_by_email(email)
-  #   user = find_or_initialize_by(mail: email)
-  #   if user.new_record?
-  #     user.password = generate_password
-  #     user.save!
-  #   end
-  #   user
-  # end
+  def own?(object)
+    id == object.user_id
+  end
+
+  def favorite(diary)
+    favorites.find_or_create_by(diary: diary)
+  end
+
+  def favorite?(diary)
+    favorite_diaries.include?(diary)
+  end
+
+  def unfavorite(diary)
+    favorite_diaries.delete(diary)
+  end
+
 end

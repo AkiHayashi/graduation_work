@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   resources :hospitals
   resources :medication_histories
   resources :pharmacies
-  resources :diaries
+  resources :diaries 
+  resources :favorites, only: [:create, :destroy]
   resources :health_statuses do 
     member do
       get 'menu'
