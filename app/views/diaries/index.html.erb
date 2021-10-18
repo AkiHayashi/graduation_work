@@ -25,13 +25,10 @@
         <td><%= link_to edit_diary_path(diary) do %>
           <%# <%= icon 'far', 'edit' %>✏️<% end %></td>
       <% else %>
-        <% if current_user&.favorite?(diary) %>
-          <td><%= link_to favorite_path(current_user.favorites.find_by(diary: diary)), method: :delete do %>
-          <%# <%= icon 'fa', 'heart' %>❤️<% end %></td>
-        <% else %>
-          <td><%= link_to favorites_path(diary: diary), method: :diary do %>
-          <%# <%= icon 'far', 'heart' %>🤍<% end %></td>
-        <% end %>
+          <td id="favorite_buttons_<%= diary.id %>">
+          <%= render "favorites/favorites", diary: diary %>
+          </td>
+        </div>
       <% end %>
     </tr>
     <% end %>
