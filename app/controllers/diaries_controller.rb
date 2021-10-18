@@ -4,10 +4,13 @@ class DiariesController < ApplicationController
 
   # GET /diaries
   def index
-    @families = current_user.families
-    @families.each {|family| @members = family.members}
-    @family_members_ids = @members.map {|member| member.user_id }
-    @diaries = Diary.where(user_id: @family_members_ids)
+    @diaries = current_user.diaries
+    if current_user.families.exists?
+      @families = current_user.families
+      @families.each {|family| @members = family.members}
+      @family_members_ids = @members.map {|member| member.user_id }
+      @diaries = Diary.where(user_id: @family_members_ids )
+    end
   end
 
   # GET /diaries/1
@@ -47,6 +50,9 @@ class DiariesController < ApplicationController
   def destroy
     @diary.destroy
     redirect_to diaries_url, notice: 'Diary was successfully destroyed.'
+  end
+
+  def menu
   end
 
   private

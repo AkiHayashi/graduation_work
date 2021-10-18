@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    lists_index_path(resource)
+  end
+
+  def ensure_current_user
+    if current_user.id != params[:id].to_i 
+      redirect_to root_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

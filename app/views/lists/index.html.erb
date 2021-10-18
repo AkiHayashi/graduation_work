@@ -1,0 +1,6 @@
+<h1>一覧</h1>
+
+<%= link_to "ユーザーページ", user_path(id: current_user.id) %>
+<%= link_to "健康管理", menu_health_status_path(id: current_user.id) %>
+<%= link_to "日記", menu_diary_path(id: current_user.id)  %>
+<%= link_to "家族ページ", menu_family_path(id: current_user.id) %>
