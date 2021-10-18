@@ -18,12 +18,20 @@ class User < ApplicationRecord
     find_or_create_by!(login_name: 'ゲスト') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
+    user = User.find_by(login_name: 'ゲスト') 
+    return user unless user.account.nil?
+    Account.create(name: "guest_account_name", icon: 'default.png', birth_date: DateTime.now - 10_000, mail: "guest@ex.com", address: "れいるず番地", tel: "0000000000", allergy: "無し", user_id: user.id)
+    user
   end
   def self.admin_guest
-    find_or_create_by!(login_name: "ゲスト管理者") do |user|
+    find_or_create_by!(login_name: 'ゲスト管理者') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.admin = true
     end
+    user = User.find_by(login_name: 'ゲスト管理者') 
+    return user unless user.account.nil?
+    Account.create(name: "guest_admin_account_name", icon: 'default.png', birth_date: DateTime.now - 10_000, mail: "guest_admin@ex.com", address: "れいるず番地", tel: "0000000000", allergy: "無し", user_id: user.id)
+    user
   end
 
   def email_required?

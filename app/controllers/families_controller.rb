@@ -4,7 +4,7 @@ class FamiliesController < ApplicationController
 
   # GET /families
   def index
-    @families = Family.all
+    @families = current_user.families
   end
 
   # GET /families/1
@@ -13,7 +13,7 @@ class FamiliesController < ApplicationController
 
   # GET /families/new
   def new
-    @family = Family.new
+    @family = current_user.families.build
   end
 
   # GET /families/1/edit
@@ -22,12 +22,11 @@ class FamiliesController < ApplicationController
 
   # POST /families
   def create
-    @family = Family.new(family_params)
+    @family = current_user.families.build(family_params)
 
     if @family.save
       @family.invite_member(current_user)
       redirect_to @family, notice: 'Family was successfully created.'
-      binding.irb
     else
       render :new
     end
@@ -46,6 +45,9 @@ class FamiliesController < ApplicationController
   def destroy
     @family.destroy
     redirect_to families_url, notice: 'Family was successfully destroyed.'
+  end
+
+  def menu
   end
 
   private
