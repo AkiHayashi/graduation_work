@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require popper
+//= require bootstrap
 //= require cocoon
 //= require chartkick
 //= require Chart.bundle
