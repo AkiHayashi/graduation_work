@@ -5,14 +5,14 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @family.image.url %>
+  <%= image_tag @family.image.url,size: '550x400' %>
 </p>
 
 <h2>わたしの家族</h2>
 <% @family.members.each do |member| %>
   <tr>
     <td><%= member.user.account.name %></td>
-    <td><%= image_tag member.user.account.icon.url, size: '100x100' %></td>
+    <td><%= image_tag member.user.account.icon.url, size: '300x300'  %></td>
   </tr>
 <% end %>
 <br>
@@ -24,6 +24,6 @@
   <%= form.button :submit %>
 <% end %>
 
-<%= link_to 'Destroy', family_path(@family), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>
+<%= link_to '削除', family_path(@family), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '編集', edit_family_path(@family) %> |
+<%= link_to '戻る', families_path %>

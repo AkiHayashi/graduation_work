@@ -105,6 +105,8 @@ GEM
       devise (>= 4.8.0)
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -248,6 +250,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -306,6 +311,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-i18n
+  faker
   groupdate
   jquery-rails
   letter_opener_web
@@ -318,6 +324,7 @@ DEPENDENCIES
   rails_admin (~> 2.0)
   rails_admin-i18n
   sass-rails (~> 5.0)
+  seed-fu
   selenium-webdriver
   simple_form
   spring

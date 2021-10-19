@@ -16,7 +16,7 @@
         <td><%= diary.title %></td>
         <td><%= diary.content %></td>
         <% if diary.image? %>
-        <td><%= image_tag diary.image.url , size: '300x300' %></td>
+        <td><%= image_tag diary.image.url, size: '400x300' %></td>
         <% end %>
         <td><%= link_to 'Show', diary %></td>
       <% if current_user.own?(diary) %>

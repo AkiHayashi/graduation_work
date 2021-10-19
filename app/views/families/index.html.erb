@@ -12,8 +12,8 @@
   <tbody>
     <% @families.each do |family| %>
       <tr>
-        <td><%= family.name %></td>
-        <td><%= image_tag family.image.url %></td>
+        <td><%= family.name %>家</td>
+        <td><%= image_tag family.image.url, size: '400x300'%></td>
         <td><%= link_to 'Show', family %></td>
       </tr>
     <% end %>
