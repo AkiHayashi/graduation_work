@@ -1,9 +1,9 @@
 <h1>わたしのページ</h1>
 <p>プロフィール画像
 <% if @user.account.icon? %>
-  <%= image_tag @user.account.icon.url, class: "icon", alt: "ユーザーアイコン" %>
+  <%= image_tag @user.account.icon.url, class: "icon", alt: "ユーザーアイコン", size: '300x300'  %>
 <% else %>
-  <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン" %>
+  <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", size: '300x300' %>
 <% end %>
 </p>
 <p>ログイン名 : <%= @user.login_name %></p>
