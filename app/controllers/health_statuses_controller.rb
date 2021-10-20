@@ -4,7 +4,10 @@ class HealthStatusesController < ApplicationController
 
   # GET /health_statuses
   def index
-    @health_statuses = current_user.health_statuses
+    @health_statuses = current_user.health_statuses.order(created_at: "ASC" )
+    @systolic = current_user.health_statuses.pluck(:created_at, :systolic)
+    @diastolic = current_user.health_statuses.pluck(:created_at, :diastolic)
+    @pulse = current_user.health_statuses.pluck(:created_at, :pulse)
   end
 
   # GET /health_statuses/1
