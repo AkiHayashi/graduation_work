@@ -25,6 +25,7 @@ class MedicalHistoriesController < ApplicationController
   # POST /medical_histories
   def create
     @medical_history = current_user.medical_histories.build(medical_history_params)
+    @hospital = @medical_history.hospitals.build
     if @medical_history.save
       redirect_to @medical_history, notice: 'Medical history was successfully created.'
     else
