@@ -1,5 +1,5 @@
 user1 = User.create(
-  login_name: "user1",
+  login_name: "ゲスト",
   password: 'password',
   admin: false
 )
@@ -17,7 +17,7 @@ Account.create(
 )
 
 user2 =  User.create(
-  login_name: "user2",
+  login_name: "おじいちゃん",
   password: 'password',
   admin: false
 )
@@ -35,7 +35,7 @@ Account.create(
 )
 
 user3 =  User.create(
-  login_name: "user3",
+  login_name: "おばあちゃん",
   password: 'password',
   admin: false
 )
@@ -53,7 +53,7 @@ Account.create(
 )
 
 admin_user =  User.create(
-  login_name: "admin_user",
+  login_name: "ゲスト管理者",
   password: 'password',
   admin: true
 )

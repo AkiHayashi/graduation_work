@@ -33,3 +33,7 @@ footer {
 html{
   text-align: center;
 }
+
+ul {
+  list-style: none;
+}
