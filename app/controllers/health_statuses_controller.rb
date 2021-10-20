@@ -5,9 +5,9 @@ class HealthStatusesController < ApplicationController
   # GET /health_statuses
   def index
     @health_statuses = current_user.health_statuses.order(created_at: "ASC" )
-    @systolic = current_user.health_statuses.pluck(:created_at, :systolic)
-    @diastolic = current_user.health_statuses.pluck(:created_at, :diastolic)
-    @pulse = current_user.health_statuses.pluck(:created_at, :pulse)
+    @systolic = current_user.health_statuses.pluck(:created_at, :systolic).sort {|a, b| a[0] <=> b[0]}
+    @diastolic = current_user.health_statuses.pluck(:created_at, :diastolic).sort {|a, b| a[0] <=> b[0]}
+    @pulse = current_user.health_statuses.pluck(:created_at, :pulse).sort {|a, b| a[0] <=> b[0]}
   end
 
   # GET /health_statuses/1
