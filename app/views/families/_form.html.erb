@@ -5,7 +5,13 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :image %>
+    <%= f.file_field  :image, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*'  %>
+  </div>
+    <% if @family.image? %>
+      <%= image_tag @family.image.url, id: 'preview', size: '300x300'%> 
+    <% else %>
+      <%= image_tag "default.png",id: "preview" %>
+    <% end %>
   </div>
 
   <div class="form-actions">

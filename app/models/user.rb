@@ -13,6 +13,11 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_diaries, through: :favorites, source: :diary
   
+  validates :login_name, presence: true
+  validates :login_name, length: { in: 2..50 }
+  validates_uniqueness_of :login_name
+  validates :login_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "は全角ひらがな、全角カタカナ、漢字で入力して下さい" }
+
 
   def self.guest
     find_or_create_by!(login_name: 'ゲスト') do |user|

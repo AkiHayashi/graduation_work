@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_104052) do
+ActiveRecord::Schema.define(version: 2021_10_19_114120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mail"], name: "index_accounts_on_mail", unique: true
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "diaries", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
+    t.string "title", null: false
+    t.text "content", null: false
     t.string "image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "families", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -60,9 +61,9 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "health_statuses", force: :cascade do |t|
-    t.integer "systolic"
-    t.integer "diastolic"
-    t.integer "pulse"
+    t.integer "systolic", null: false
+    t.integer "diastolic", null: false
+    t.integer "pulse", null: false
     t.text "condition", default: "", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -71,9 +72,9 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "hospitals", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "tel"
+    t.string "name", null: false
+    t.string "address", default: "", null: false
+    t.string "tel", default: "", null: false
     t.bigint "medical_history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "medical_histories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.date "start_on"
     t.string "surgery", default: "", null: false
     t.date "surgery_on"
@@ -92,10 +93,10 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "medication_histories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "usage", default: 0, null: false
     t.date "prescription_on"
-    t.text "note"
+    t.text "note", default: "", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -112,9 +113,9 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "pharmacies", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "tel"
+    t.string "name", null: false
+    t.string "address", default: "", null: false
+    t.string "tel", default: "", null: false
     t.bigint "medication_history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -122,7 +123,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "login_name", default: "", null: false
+    t.string "login_name", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -135,6 +136,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_104052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.index ["login_name"], name: "index_users_on_login_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

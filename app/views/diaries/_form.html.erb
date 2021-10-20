@@ -1,12 +1,11 @@
-
-<%= form_for(@diary) do |f| %>
+<%= simple_form_for(@diary) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
   <div class="form-inputs">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %><br />
-    <%= f.label :content %><br />
-    <%= f.text_field :content %><br />
+    <%= f.input :title %><br />
+    <%= f.input :content %><br />
     <%= f.label :image %><br />
     <%= f.file_field  :image, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*'  %>
   </div>

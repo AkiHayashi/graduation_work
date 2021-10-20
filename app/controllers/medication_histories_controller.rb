@@ -25,8 +25,8 @@ class MedicationHistoriesController < ApplicationController
   # POST /medication_histories
   def create
     @medication_history = current_user.medication_histories.build(medication_history_params)
-    binding.irb
-    if @medication_history.save!
+    @pharmacy = @medication_history.pharmacies.build
+    if @medication_history.save
       redirect_to @medication_history, notice: 'Medication history was successfully created.'
     else
       render :new

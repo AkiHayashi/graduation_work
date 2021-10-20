@@ -6,4 +6,6 @@ class Family < ApplicationRecord
   def invite_member(user)
     members.create(user: user)
   end
+
+  validates :name, presence: true, length: { maximum: 50 }
 end
