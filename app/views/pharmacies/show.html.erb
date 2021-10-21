@@ -1,15 +1,15 @@
 <p>
-  <strong>Name:</strong>
+  <strong>薬局名</strong>
   <%= @pharmacy.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>薬局の住所</strong>
   <%= @pharmacy.address %>
 </p>
 
 <p>
-  <strong>Tel:</strong>
+  <strong>薬局の電話番号</strong>
   <%= @pharmacy.tel %>
 </p>
 
@@ -18,5 +18,5 @@
   <%= @pharmacy.medication_history.name %>
 </p>
 
-<%= link_to 'Edit', edit_pharmacy_path(@pharmacy) %> |
-<%= link_to 'Back', pharmacies_path %>
+<%= link_to '薬局の情報を編集する', edit_pharmacy_path(@pharmacy) %> 
+<%= link_to '薬局の一覧へ戻る', pharmacies_path %>

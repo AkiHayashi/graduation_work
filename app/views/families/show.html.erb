@@ -1,10 +1,11 @@
 <p>
-  <strong>Name:</strong>
+  <strong>家族名</strong>
   <%= @family.name %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>家族の写真</strong>
+  <% @family.image? %>
   <%= image_tag @family.image.url ,size: '550x400' %>
 </p>
 

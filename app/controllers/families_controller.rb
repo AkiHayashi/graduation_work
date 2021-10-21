@@ -26,7 +26,7 @@ class FamiliesController < ApplicationController
 
     if @family.save
       @family.invite_member(current_user)
-      redirect_to @family, notice: 'Family was successfully created.'
+      redirect_to @family, notice: '新しい家族を作りました。'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class FamiliesController < ApplicationController
   # PATCH/PUT /families/1
   def update
     if @family.update(family_params)
-      redirect_to @family, notice: 'Family was successfully updated.'
+      redirect_to @family, notice: '家族の情報を更新しました'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class FamiliesController < ApplicationController
   # DELETE /families/1
   def destroy
     @family.destroy
-    redirect_to families_url, notice: 'Family was successfully destroyed.'
+    redirect_to families_url, notice: '家族を削除しました'
   end
 
   def menu

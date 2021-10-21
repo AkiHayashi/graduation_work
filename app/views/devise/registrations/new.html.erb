@@ -5,7 +5,8 @@
 
   <div class="field">
       <%= f.label :login_name %><br />
-    <%= f.text_field :login_name, autofocus: true %>
+      <em>全角ひらがな、全角カタカナ、漢字で入力してください</em> <br />
+    <%= f.text_field :login_name, autofocus: true, placeholder: "アプリを使うときのお名前" %>
   </div>
 
   <div class="field">
@@ -13,18 +14,19 @@
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "******"%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <em>再度同じパスワードを入力してください</em><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******"%>
   </div>
 
   <%= f.fields_for :account do |a| %>
     <div class="field">
       <%= a.label :name %><br />
-      <%= a.text_field :name %>
+      <%= a.text_field :name, placeholder: "本名" %>
     </div>
     <div class="field">
       <%= a.label :birth_date %><br />
@@ -33,11 +35,10 @@
     <div class="field">
       <%= a.label :icon %><br />
       <%= a.file_field :icon %>
-      
     </div>
     <div class="field">
       <%= a.label :mail %><br />
-      <%= a.text_field :mail %>
+      <%= a.text_field :mail , placeholder: "abc＠exmple.com"%>
     </div>
     <div class="field">
       <%= a.label :address %><br />
@@ -45,7 +46,7 @@
     </div>
     <div class="field">
       <%= a.label :tel %><br />
-      <%= a.text_field :tel%>
+      <%= a.text_field :tel, placeholder: "012-345-6789"%>
     </div>
     <div class="field">
       <%= a.label :allergy %><br />

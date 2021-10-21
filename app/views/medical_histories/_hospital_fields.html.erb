@@ -1,8 +1,11 @@
-<div class="nested-fields well well-compact">
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  
+  <div class="nested-fields well well-compact">
   <div class="form-group">
     <%= f.input :name %><br>
     <%= f.input :address %><br>
     <%= f.input :tel %><br>
-    <%= link_to_remove_association "remove hospital", f %>
+    <%= link_to_remove_association "病院を削除する", f %>
   </div>
 </div>

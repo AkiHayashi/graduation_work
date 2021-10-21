@@ -1,22 +1,22 @@
 <p>
-  <strong>Systolic:</strong>
+  <strong>収縮期血圧(上)</strong>
   <%= @health_status.systolic %>
 </p>
 
 <p>
-  <strong>Diastolic:</strong>
+  <strong>拡張期血圧(下)</strong>
   <%= @health_status.diastolic %>
 </p>
 
 <p>
-  <strong>Pulse:</strong>
+  <strong>脈拍</strong>
   <%= @health_status.pulse %>
 </p>
 
 <p>
-  <strong>Condition:</strong>
+  <strong>体調</strong>
   <%= @health_status.condition%>
 </p>
 
-<%= link_to 'Edit', edit_health_status_path(@health_status) %> |
-<%= link_to 'Back', health_statuses_path %>
+<%= link_to '健康記録を編集する', edit_health_status_path(@health_status) %> |
+<%= link_to '健康状態一覧に戻る', health_statuses_path %>
