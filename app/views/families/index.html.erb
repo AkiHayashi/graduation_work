@@ -1,10 +1,10 @@
-<h1>Families</h1>
+<h1>わたしの家族</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Image</th>
+      <th>家族名</th>
+      <th>家族の写真</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +12,9 @@
   <tbody>
     <% @families.each do |family| %>
       <tr>
-        <td><%= family.name %>家</td>
+        <td><%= family.name %><p>家</p></td>
         <td><%= image_tag family.image.url, size: '400x300'%></td>
-        <td><%= link_to 'Show', family %></td>
+        <td><%= link_to 'この家族のページへ', family %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Family', new_family_path %>
+<%= link_to '新しい家族を作成する', new_family_path %>

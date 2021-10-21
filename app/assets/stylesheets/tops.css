@@ -37,3 +37,13 @@ html{
 ul {
   list-style: none;
 }
+
+input[type="text"] {
+  width: 400px;
+  height: 60px;
+}
+
+input[type="password"] {
+  width: 300px;
+  height: 40px;
+}

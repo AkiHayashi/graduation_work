@@ -6,15 +6,15 @@
   <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", size: '300x300' %>
 <% end %>
 </p>
-<p>ログイン名 : <%= @user.login_name %></p>
-<p>本名: <%= @user.account.name %></p>
-<p>生年月日: <%= @user.account.birth_date %></p>
-<p>住所: <%= @user.account.address %></p>
-<p>電話番号: <%= @user.account.tel %></p>
-<p>メールアドレス: <%= @user.account.mail %></p>
-<p>お薬のアレルギー: <%= @user.account.allergy %></p>
+<p>ログイン名<%= @user.login_name %></p>
+<p>本名<%= @user.account.name %></p>
+<p>生年月日<%= @user.account.birth_date %></p>
+<p>住所<%= @user.account.address %></p>
+<p>電話番号<%= @user.account.tel %></p>
+<p>メールアドレス<%= @user.account.mail %></p>
+<p>お薬のアレルギー<%= @user.account.allergy %></p>
 
-<%= link_to "既往歴", medical_histories_path %><br>
-<%= link_to '服薬歴', medication_histories_path %>
+<%= link_to "既往歴を見る", medical_histories_path %><br>
+<%= link_to '服薬歴を見る', medication_histories_path %>
 
 <%= link_to "プロフィール編集", edit_user_registration_path %>

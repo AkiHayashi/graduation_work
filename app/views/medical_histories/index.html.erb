@@ -1,12 +1,12 @@
-<h1>Medical Histories</h1>
+<h1>既往歴</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Start on</th>
-      <th>Surgery</th>
-      <th>Surgery on</th>
+      <th>病名</th>
+      <th>治療開始日</th>
+      <th>手術名</th>
+      <th>手術日</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,20 @@
     <% @medical_histories.each do |medical_history| %>
       <tr>
         <td><%= medical_history.name %></td>
-        <td><%= medical_history.start_on %></td>
-        <td><%= medical_history.surgery %></td>
-        <td><%= medical_history.surgery_on %></td>
-        <td><%= link_to 'Show', medical_history %></td>
-        <td><%= link_to 'Edit', edit_medical_history_path(medical_history) %></td>
-        <td><%= link_to 'Destroy', medical_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= l medical_history.start_on, format: :long %></td>
+        <% if medical_history.surgery? %>
+          <td><%= medical_history.surgery %></td>
+        <% else %>
+          <td>無し</td>
+        <% end %>
+        <% if medical_history.surgery_on? %>
+          <td><%= l medical_history.surgery_on, format: :long %></td>
+        <% else %>
+          <td>無し</td>
+        <% end %>
+        <td><%= link_to 'この既往歴の詳細を見る', medical_history %></td>
+        <td><%= link_to 'この既往歴を編集する', edit_medical_history_path(medical_history) %></td>
+        <td><%= link_to '削除', medical_history, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +36,5 @@
 
 <br>
 
-<%= link_to 'かかりつけ医', hospitals_path %><br>
-<%= link_to 'New Medical History', new_medical_history_path %>
+<%= link_to 'かかりつけ医一覧を見る', hospitals_path %><br>
+<%= link_to '新しい既往歴を作成する', new_medical_history_path %>

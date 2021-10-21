@@ -28,7 +28,7 @@ class HospitalsController < ApplicationController
     @hospital = current_user.hospitals.build(hospital_params)
 
     if @hospital.save
-      redirect_to @hospital, notice: 'Hospital was successfully created.'
+      redirect_to @hospital, notice: '新しくかかりかかりつけ医を登録しました'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class HospitalsController < ApplicationController
   # PATCH/PUT /hospitals/1
   def update
     if @hospital.update(hospital_params)
-      redirect_to @hospital, notice: 'Hospital was successfully updated.'
+      redirect_to @hospital, notice: '病院の情報を更新しました'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class HospitalsController < ApplicationController
   # DELETE /hospitals/1
   def destroy
     @hospital.destroy
-    redirect_to hospitals_url, notice: 'Hospital was successfully destroyed.'
+    redirect_to hospitals_url, notice: '病院を削除しました'
   end
 
   private

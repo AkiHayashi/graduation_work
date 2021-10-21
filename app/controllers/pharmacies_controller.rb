@@ -28,7 +28,7 @@ class PharmaciesController < ApplicationController
     @pharmacy = current_user.pharmacies.build(pharmacy_params)
 
     if @pharmacy.save
-      redirect_to @pharmacy, notice: 'Pharmacy was successfully created.'
+      redirect_to @pharmacy, notice: '薬局を登録しました'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class PharmaciesController < ApplicationController
   # PATCH/PUT /pharmacies/1
   def update
     if @pharmacy.update(pharmacy_params)
-      redirect_to @pharmacy, notice: 'Pharmacy was successfully updated.'
+      redirect_to @pharmacy, notice: '薬局の情報を更新しました'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class PharmaciesController < ApplicationController
   # DELETE /pharmacies/1
   def destroy
     @pharmacy.destroy
-    redirect_to pharmacies_url, notice: 'Pharmacy was successfully destroyed.'
+    redirect_to pharmacies_url, notice: '薬局を一件削除しました'
   end
 
   private

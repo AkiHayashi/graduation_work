@@ -1,0 +1,70 @@
+
+# モデルは全て activerecord 以下に記述する。
+# これにより、User.model_name.human / User.human_attribute_name({attr_name})で使用可能。
+
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      account: アカウント
+      user: ユーザー
+      diary: 日記
+      family: 家族
+      favorite: お気に入り
+      health_status: 健康状態
+      medical_history: 既往歴
+      medication_history: 服薬歴
+      member: 家族メンバー
+      pharmacy: 薬局
+      hospital: 病院
+      hospitals: 病院
+    # model毎に定義したいattributesを記述
+    attributes:
+        account:
+          id: ID
+          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+          name: お名前
+          birth_date: 生年月日
+          icon: プロフィール画像
+          mail: メールアドレス
+        diary:
+          id: ID
+          title: 題名
+          content: 内容
+          image: 画像
+        family:
+          id: ID
+          name: 家族名
+          image: 家族写真
+        health_status:
+          id: ID
+          systolic: 収縮期血圧(上)
+          diastolic: 拡張期血圧(下)
+          pulse: 脈拍
+          condition: 体調
+        hospital:
+          id: ID
+          name: 病院名
+          address: 病院住所
+          tel: 病院電話番号
+        medical_history:
+          id: ID
+          name: 傷病名
+          start_on: 治療開始日
+          surgery: 手術
+          surgery_on: 手術日
+        medication_history:
+          id: ID
+          name: 薬品名
+          usage: 服用方法
+          prescription_on: 処方日
+          note: 備考
+        pharmacy:
+          id: ID
+          name: 薬局名
+          address: 薬局住所
+          tel: 薬局電話番号
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日

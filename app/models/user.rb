@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :login_name, presence: true
   validates :login_name, length: { in: 2..50 }
   validates_uniqueness_of :login_name
-  validates :login_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "は全角ひらがな、全角カタカナ、漢字で入力して下さい" }
+  validates :login_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "は全角ひらがな、全角カタカナ、漢字で入力してください" }
 
 
   def self.guest

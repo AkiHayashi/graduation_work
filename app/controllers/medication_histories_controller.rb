@@ -27,7 +27,7 @@ class MedicationHistoriesController < ApplicationController
     @medication_history = current_user.medication_histories.build(medication_history_params)
     @pharmacy = @medication_history.pharmacies.build
     if @medication_history.save
-      redirect_to @medication_history, notice: 'Medication history was successfully created.'
+      redirect_to @medication_history, notice: '服薬歴を作成しました'
     else
       render :new
     end
@@ -36,7 +36,7 @@ class MedicationHistoriesController < ApplicationController
   # PATCH/PUT /medication_histories/1
   def update
     if @medication_history.update(medication_history_params)
-      redirect_to @medication_history, notice: 'Medication history was successfully updated.'
+      redirect_to @medication_history, notice: '服薬歴の情報を更新しました'
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class MedicationHistoriesController < ApplicationController
   # DELETE /medication_histories/1
   def destroy
     @medication_history.destroy
-    redirect_to medication_histories_url, notice: 'Medication history was successfully destroyed.'
+    redirect_to medication_histories_url, notice: '服薬歴を一件削除しました'
   end
 
   private

@@ -1,8 +1,8 @@
 <% if current_user&.favorite?(diary) %>
 
-  <%= link_to favorite_path(id: diary.id), method: :delete, remote: true do %>♥<%= diary.favorites.count %>いいね
+  <%= link_to favorite_path(id: diary.id), method: :delete, remote: true do %>♥<%= diary.favorites.count %><p>いいね</p>
   <% end %>
 <% else %>
-  <%= link_to favorites_path(id: diary.id), method: :post, remote: true do %>♡<%= diary.favorites.count %>いいね
+  <%= link_to favorites_path(id: diary.id), method: :post, remote: true do %>♡<%= diary.favorites.count %><p>いいね</p>
   <% end %>
 <% end %>

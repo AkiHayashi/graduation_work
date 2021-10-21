@@ -1,22 +1,30 @@
 
 <p>
-  <strong>Name:</strong>
+  <strong>傷病名</strong>
   <%= @medical_history.name %>
 </p>
 
 <p>
-  <strong>Start on:</strong>
-  <%= @medical_history.start_on %>
+  <strong>治療開始日</strong>
+  <%= l @medical_history.start_on, format: :long %>
 </p>
 
 <p>
-  <strong>Surgery:</strong>
-  <%= @medical_history.surgery %>
+  <strong>手術名</strong>
+  <% if @medical_history.surgery? %>
+    <%= @medical_history.surgery %>
+  <% else %>
+    <p>無し</p>
+  <% end %>
 </p>
 
 <p>
-  <strong>Surgery on:</strong>
-  <%= @medical_history.surgery_on %>
+  <strong>手術日</strong>
+  <% if @medical_history.surgery_on? %>
+    <%= l @medical_history.surgery_on, format: :long %>
+  <% else %>
+    <p>無し</p>
+  <% end %>
 </p>
 
 <div>
@@ -27,5 +35,5 @@
 </div>
 
 
-<%= link_to 'Edit', edit_medical_history_path(@medical_history) %> |
-<%= link_to 'Back', medical_histories_path %>
+<%= link_to '編集する', edit_medical_history_path(@medical_history) %>
+<%= link_to '既往歴一覧に戻る', medical_histories_path %>

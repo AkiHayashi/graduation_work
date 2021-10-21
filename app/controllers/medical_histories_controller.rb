@@ -24,10 +24,14 @@ class MedicalHistoriesController < ApplicationController
 
   # POST /medical_histories
   def create
-    @medical_history = current_user.medical_histories.build(medical_history_params)
+    @medical_history = current_user.medical_histories.new(medical_history_params)
+    # binding.irb
+    # @hospital = @medical_history.hospitals.build
     if @medical_history.save
-      redirect_to @medical_history, notice: 'Medical history was successfully created.'
+      redirect_to @medical_history, notice: '既往歴が作成されました。'
     else
+      @medical_history.hospitals.destroy_all
+      @medical_history.hospitals.build
       render :new
     end
   end
@@ -35,7 +39,7 @@ class MedicalHistoriesController < ApplicationController
   # PATCH/PUT /medical_histories/1
   def update
     if @medical_history.update(medical_history_params)
-      redirect_to @medical_history, notice: 'Medical history was successfully updated.'
+      redirect_to @medical_history, notice: '既往歴が更新されました。'
     else
       render :edit
     end
@@ -44,7 +48,7 @@ class MedicalHistoriesController < ApplicationController
   # DELETE /medical_histories/1
   def destroy
     @medical_history.destroy
-    redirect_to medical_histories_url, notice: 'Medical history was successfully destroyed.'
+    redirect_to medical_histories_url, notice: '既往歴が削除されました。'
   end
 
   private

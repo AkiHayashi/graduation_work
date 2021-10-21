@@ -1,15 +1,6 @@
 <%= simple_form_for(@medical_history) do |f| %>
-  <% if medical_history.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(medical_history.errors.count, "error") %> prohibited this medical_history from being saved:</h2>
-
-      <ul>
-      <% medical_history.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="field">
     <%= f.input :name %>
@@ -27,13 +18,13 @@
     <%= f.input :surgery_on, include_blank: true %>
   </div>
 
-  <h3>Hospitals</h3>
+  <h3>病院</h3>
   <div id="hospitals">
     <%= f.simple_fields_for :hospitals do |hospital| %>
       <%= render 'hospital_fields', f: hospital %>
     <% end %>
     <div id="links">
-      <%= link_to_add_association 'add hospital',f, :hospitals %>
+      <%= link_to_add_association '病院を追加する',f, :hospitals %>
     </div>
   </div>
 

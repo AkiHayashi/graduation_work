@@ -5,9 +5,9 @@ class HealthStatusesController < ApplicationController
   # GET /health_statuses
   def index
     @health_statuses = current_user.health_statuses.order(created_at: "ASC" )
-    @systolic = current_user.health_statuses.pluck(:created_at, :systolic).sort {|a, b| a[0] <=> b[0]}
-    @diastolic = current_user.health_statuses.pluck(:created_at, :diastolic).sort {|a, b| a[0] <=> b[0]}
-    @pulse = current_user.health_statuses.pluck(:created_at, :pulse).sort {|a, b| a[0] <=> b[0]}
+    @systolic = create_chart_data(current_user.health_statuses.pluck(:created_at,:systolic))
+    @diastolic = create_chart_data(current_user.health_statuses.pluck(:created_at, :diastolic))
+    @pulse = create_chart_data(current_user.health_statuses.pluck(:created_at, :pulse))
   end
 
   # GET /health_statuses/1
@@ -28,7 +28,7 @@ class HealthStatusesController < ApplicationController
     @health_status = current_user.health_statuses.build(health_status_params)
 
     if @health_status.save
-      redirect_to @health_status, notice: 'Health status was successfully created.'
+      redirect_to @health_status, notice: '健康状態を記録しました'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class HealthStatusesController < ApplicationController
   # PATCH/PUT /health_statuses/1
   def update
     if @health_status.update(health_status_params)
-      redirect_to @health_status, notice: 'Health status was successfully updated.'
+      redirect_to @health_status, notice: '健康状態の内容を更新しました'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class HealthStatusesController < ApplicationController
   # DELETE /health_statuses/1
   def destroy
     @health_status.destroy
-    redirect_to health_statuses_url, notice: 'Health status was successfully destroyed.'
+    redirect_to health_statuses_url, notice: '健康状態の記録を一件削除しました'
   end
 
   def menu
@@ -61,5 +61,11 @@ class HealthStatusesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def health_status_params
       params.require(:health_status).permit(:systolic, :diastolic, :pulse, :condition)
+    end
+
+    def create_chart_data(plucked)
+      results = []
+      plucked.sort {|a, b| a[0] <=> b[0]}.each { |sys| results.push(sys[0].strftime('%m/%d'), sys[1]) }
+      results.each_slice(2).map {|arr| arr }
     end
 end
