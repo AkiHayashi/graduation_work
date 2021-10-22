@@ -235,9 +235,11 @@ Member.create(
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("public/images/diary1.jpg").open, 
+  image: Rails.root.join("db/images/kero.png").open, 
   user_id: user1.id
 )
+# image: Rails.root.join("public/images/diary1.jpg").open, 
+
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
