@@ -265,19 +265,19 @@ Diary.create(
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary6.png"), 
+  image: File.open(File.join(Rails.root, '/public/images/diary6.jpg')), 
   user_id: user3.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary7.jpg"), 
+  image: File.open(File.join(Rails.root, '/db/images/diary7.jpg')), 
   user_id: admin_user.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary8.jpg"), 
+  image: File.open("#{Rails.root}/public/uploads/account/icon/1/kori.jpg"),, 
   user_id: admin_user.id
 )
 

@@ -15,7 +15,7 @@ user1 = User.create(
 Account.create(
   name: "ユーザー1", 
   birth_date: DateTime.now - 10_000, 
-  icon:File.open(".public/images/user1.jpg"),
+  icon:File.open("./public/images/user1.jpg"),
   mail: "user1@ex.com", 
   address: "", 
   tel: "", 
