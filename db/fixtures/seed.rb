@@ -232,7 +232,7 @@ Member.create(
   user_id: admin_user.id
 )
 
-Diary.create(
+Diary.new(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
   image: Rails.root.join("db/images/kero.png").open, 

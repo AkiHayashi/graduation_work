@@ -15,9 +15,9 @@
       <tr>
         <td><%= diary.title %></td>
         <td><%= diary.content %></td>
-        <% if diary.image? %>
+        <%# if diary.image? %>
         <td><%= image_tag diary.image.url, size: '400x300' %></td>
-        <% end %>
+        <%# end %>
         <td><%= link_to 'この日記の詳細', diary %></td>
       <% if current_user.own?(diary) %>
         <td><%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete %></td>
