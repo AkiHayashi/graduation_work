@@ -235,7 +235,7 @@ Member.create(
 Diary.new(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/kero.png").open, 
+  image: Rails.root.join("db/fixtures/images/diary1.jpg").open, 
   user_id: user1.id
 )
 # image: Rails.root.join("public/images/diary1.jpg").open, 
@@ -255,13 +255,13 @@ Diary.create(
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("public/images/diary4.png").open, 
+  image: Rails.root.join("app/assets/images/default.png").open, 
   user_id: user2.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary5.png").open, 
+  image: Rails.root.join("app/assets/images/diary5.png").open, 
   user_id: user3.id
 )
 Diary.create(
