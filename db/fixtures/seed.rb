@@ -277,7 +277,7 @@ Diary.create(
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open(File.join(Rails.root, "/public/uploads/diary/image/8/diary8.jpg")), 
+  image: File.open(File.join(Rails.root, "/db/fixtures/images/diary8.jpg")), 
   user_id: admin_user.id
 )
 
