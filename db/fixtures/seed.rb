@@ -7,7 +7,7 @@ user1 = User.create(
 Account.create(
   name: Faker::Name.first_name, 
   birth_date: DateTime.now - 10_000, 
-  icon:File.open("./public/images/user1.jpg"),
+  icon:Rails.root.join("db/images/user1.jpg").open,
   mail: Faker::Internet.email, 
   address: Faker::Address.city, 
   tel: Faker::PhoneNumber.cell_phone,
@@ -235,13 +235,13 @@ Member.create(
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary1.jpg"), 
+  image: Rails.root.join("public/images/diary1.jpg").open, 
   user_id: user1.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary2.jpg"), 
+  image: Rails.root.join("db/images/diary2.jpg").open, 
   user_id: user1.id
 )
 Diary.create(
@@ -253,19 +253,19 @@ Diary.create(
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary4.jpg"), 
+  image: Rails.root.join("public/images/diary4.png").open, 
   user_id: user2.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary5.jpg"), 
+  image: Rails.root.join("db/images/diary5.png").open, 
   user_id: user3.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary6.jpg"), 
+  image: File.open("./public/images/diary6.png"), 
   user_id: user3.id
 )
 Diary.create(
