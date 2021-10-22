@@ -22,7 +22,7 @@
           <td>無し</td>
         <% end %>
         <% if medical_history.surgery_on? %>
-          <td><%= l medical_history.surgery_on, format: :long %></td>
+          <td><%= l medical_history.surgery_on, format: :short %></td>
         <% else %>
           <td>無し</td>
         <% end %>

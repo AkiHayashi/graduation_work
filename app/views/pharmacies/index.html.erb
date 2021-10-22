@@ -18,7 +18,7 @@
         <td><%= pharmacy.tel %></td>
         <td><%= link_to 'この薬局の詳細を見る', pharmacy %></td>
         <td><%= link_to 'この薬局の情報を編集する', edit_pharmacy_path(pharmacy) %></td>
-        <td><%= link_to '削除p', pharmacy, method: :delete, data: { confirm: '本当に削除しますか' } %></td>
+        <td><%= link_to '削除', pharmacy, method: :delete, data: { confirm: '本当に削除しますか' } %></td>
       </tr>
     <% end %>
   </tbody>

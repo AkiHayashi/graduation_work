@@ -3,24 +3,25 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="field">
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: "(例)心筋梗塞" %>
   </div>
 
   <div class="field">
-    <%= f.input :start_on %>
+    <%= f.input :start_on, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year %>
   </div>
 
   <div class="field">
-    <%= f.input :surgery %>
+    <%= f.input :surgery, placeholder: "(例)冠動脈バイパス手術" %>
   </div>
 
   <div class="field">
-    <%= f.input :surgery_on, include_blank: true %>
+    <%= f.input :surgery_on, include_blank: true, start_year: Date.today.year - 50, end_year: Date.today.year + 1 %>
   </div>
 
   <h3>病院</h3>
   <div id="hospitals">
     <%= f.simple_fields_for :hospitals do |hospital| %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= render 'hospital_fields', f: hospital %>
     <% end %>
     <div id="links">

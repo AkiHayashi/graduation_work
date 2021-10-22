@@ -3,9 +3,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :systolic %>
-    <%= f.input :diastolic %>
-    <%= f.input :pulse %>
+    <%= f.input :systolic, input_html: { value: '110' } %>
+    <%= f.input :diastolic, input_html: { value: '80' } %>
+    <%= f.input :pulse, input_html: { value: '80' } %>
     <%= f.input :condition %>
   </div>
 

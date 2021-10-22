@@ -25,10 +25,11 @@ class MedicationHistoriesController < ApplicationController
   # POST /medication_histories
   def create
     @medication_history = current_user.medication_histories.build(medication_history_params)
-    @pharmacy = @medication_history.pharmacies.build
     if @medication_history.save
       redirect_to @medication_history, notice: '服薬歴を作成しました'
     else
+      @pharmacy = @medication_history.pharmacies.destroy_all
+      @pharmacy = @medication_history.pharmacies.build
       render :new
     end
   end
@@ -38,6 +39,8 @@ class MedicationHistoriesController < ApplicationController
     if @medication_history.update(medication_history_params)
       redirect_to @medication_history, notice: '服薬歴の情報を更新しました'
     else
+      @pharmacy = @medication_history.pharmacies.destroy_all
+      @pharmacy = @medication_history.pharmacies.build
       render :edit
     end
   end
@@ -63,9 +66,8 @@ class MedicationHistoriesController < ApplicationController
         :note, 
         :user_id,
         pharmacies_attributes: %i{ 
-          name 
-          address
-          tel 
+          name
+          tel
           id
           _destroy}
         )

@@ -15,20 +15,20 @@
       <tr>
         <td><%= diary.title %></td>
         <td><%= diary.content %></td>
-        <%# if diary.image? %>
-        <td><%= image_tag diary.image.url, size: '400x300' %></td>
-        <%# end %>
+        <% if diary.image? %>
+          <td><%= image_tag diary.image.url, size: '400x300' %></td>
+        <% else %>
+          <td>画像はありません</td>
+        <% end %>
         <td><%= link_to 'この日記の詳細', diary %></td>
       <% if current_user.own?(diary) %>
         <td><%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete %></td>
-        <td><%= link_to edit_diary_path(diary) do %>
-          <%# <%= icon 'far', 'edit' %><p>✏️編集</p><% end %></td>
-      <% else %>
+        <td><%= link_to '編集', edit_diary_path(diary)  %>
+      <% end %>
           <td id="favorite_buttons_<%= diary.id %>">
           <%= render "favorites/favorites", diary: diary %>
           </td>
         </div>
-      <% end %>
     </tr>
     <% end %>
 

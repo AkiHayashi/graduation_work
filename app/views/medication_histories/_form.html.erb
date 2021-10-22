@@ -4,14 +4,15 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: "(例)ロチソニン" %>
     <%= f.select :usage, MedicationHistory.usages.keys.to_a, {} %>
-    <%= f.input :prescription_on %>
+    <%= f.input :prescription_on, as: :date, start_year: Date.today.year - 3, end_year: Date.today.year %>
     <%= f.input :note %>
 
 <h1>かかりつけ薬局</h1>
     <%= f.simple_fields_for :pharmacies do |p| %>
-      <%= p.input :name %>
+      <%= p.input :name, placeholder: "(例)かきく薬局" %>
+      <%= p.input :tel, as: :hidden, input_html: { value: '' } %>
     <% end %>
   </div>
 
