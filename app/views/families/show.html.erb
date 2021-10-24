@@ -10,11 +10,13 @@
 </p>
 
 <h2>わたしの家族</h2>
-<% @family.members.each do |member| %>
-  <tr>
-    <td><%= member.user.account.name %></td>
-    <td><%= image_tag member.user.account.icon.url, size: '300x300'  %></td>
-  </tr>
+<% if @family.members.exists?%>
+  <% @family.members.each do |member| %>
+    <tr>
+        <td><%= member.user.account.name %></td>
+        <td><%= image_tag member.user.account.icon.url, size: '300x300'  %></td>
+    </tr><br>
+  <% end %>
 <% end %>
 <br>
 <br>
