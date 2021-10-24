@@ -1,0 +1,30 @@
+<h1>みんなの日記</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>題名</th>
+      <th>内容</th>
+      <th>画像</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diaries.each do |diary| %>
+      <tr>
+        <td><%= diary.title %></td>
+        <td><%= diary.content %></td>
+        <% if diary.image? %>
+          <td><%= image_tag diary.image.url, size: '400x300' %></td>
+        <% else %>
+          <td>画像はありません</td>
+        <% end %>
+        <td><%= link_to 'この日記の詳細', diary %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '戻る', menu_diary_path(id: current_user.id) %>

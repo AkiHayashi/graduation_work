@@ -4,11 +4,13 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url('background.png');
+  background-size: cover;
 }
 
 .content {
   flex: 1;
-  margin-bottom: 3rem;
+  margin: 3rem;
   font-family: 'Shippori Mincho', serif !important;
 }
 
@@ -16,6 +18,7 @@ header {
   height: auto;
   background-color: #122c49;
   font-family: 'Shippori Mincho', serif !important;
+  min-width:100vw;
 }
 
 header a {
@@ -25,7 +28,7 @@ header a {
 }
 
 footer {
-  margin-top: auto;
+  margin-top: auto !important;
   bottom: 0;
 }
 
@@ -46,7 +49,60 @@ input[type="text"] {
   height: 60px;
 }
 
+
 input[type="password"] {
   width: 300px;
   height: 40px;
+}
+
+.to_right{
+  margin-top: 1rem;
+  text-align: right;
+}
+.top_menu_introduction{
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  margin-right: 0;
+  text-align: left;
+	display: inline-block;
+  max-width: 95vw;
+}
+.top_menu_introduction ul{
+  margin-left: 3%;
+}
+
+.top_menu_introduction li{
+  padding-left: 3%;
+  font-size: larger;
+}
+.mains{
+  padding-top: 2rem;
+}
+
+.options{
+  display: block;
+}
+
+.mains .btn{
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.btn-border {
+  border: 2px solid #122c49 !important;
+  border-radius: 0;
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.btn-border a {
+  text-decoration: none;
+  color: #122c49;
+  font-size: large;
+}
+
+.btn-border:hover {
+  -webkit-box-shadow: -4px -4px 0 #000;
+  box-shadow: -4px -4px 0 #000;
 }

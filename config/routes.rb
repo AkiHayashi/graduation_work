@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       get 'menu'
     end
   end
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:index, :create, :destroy]
   resources :health_statuses do 
     member do
       get 'menu'

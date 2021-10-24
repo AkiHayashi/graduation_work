@@ -1,4 +1,4 @@
-<h1>みんなの日記</h1>
+<h1>お気に入りの日記</h1>
 
 <table>
   <thead>
@@ -38,3 +38,4 @@
 <br>
 
 <%= link_to '日記を書く', new_diary_path %>
+<%= link_to 'メニューに戻る', menu_diary_path(id: current_user.id) %>
