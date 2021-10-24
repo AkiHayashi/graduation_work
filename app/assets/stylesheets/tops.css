@@ -9,13 +9,13 @@ body{
 .content {
   flex: 1;
   margin-bottom: 3rem;
-  font-family: "Noto Serif JP", serif !important;
+  font-family: 'Shippori Mincho', serif !important;
 }
 
 header {
   height: auto;
   background-color: #122c49;
-  font-family: "Noto Serif JP", serif !important;
+  font-family: 'Shippori Mincho', serif !important;
 }
 
 header a {
