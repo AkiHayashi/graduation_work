@@ -4,7 +4,7 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url('background.png');
+  background-image: url('back.jpg');
   background-size: cover;
 }
 
@@ -16,7 +16,7 @@ body{
 
 header {
   height: auto;
-  background-color: #122c49;
+  background-color: #3e214c;
   font-family: 'Shippori Mincho', serif !important;
   min-width:100vw;
 }
@@ -100,9 +100,20 @@ input[type="password"] {
   text-decoration: none;
   color: #122c49;
   font-size: large;
+  text-align: center;
+  display: inline-block;
 }
 
 .btn-border:hover {
   -webkit-box-shadow: -4px -4px 0 #000;
   box-shadow: -4px -4px 0 #000;
+}
+
+.actions{
+  margin-top: 1rem;
+}
+
+.confirm_account{
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
