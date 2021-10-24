@@ -13,8 +13,12 @@
 <% if @family.members.exists?%>
   <% @family.members.each do |member| %>
     <tr>
-        <td><%= member.user.account.name %></td>
-        <td><%= image_tag member.user.account.icon.url, size: '300x300'  %></td>
+        <% if member.user.account.name? %>
+          <td><%= member.user.account.name %></td>
+        <% end %>
+        <% if member.user.account.icon? %>
+          <td><%= image_tag member.user.account.icon.url, size: '300x300'  %></td>
+        <% end %>
     </tr><br>
   <% end %>
 <% end %>
