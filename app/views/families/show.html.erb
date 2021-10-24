@@ -1,25 +1,26 @@
-<p>
+<h1>
   <strong>家族名</strong>
   <%= @family.name %>
-</p>
+</h1>
+<br>
 
-<p>
-  <strong>家族の写真</strong>
+<h2>
+  <strong>家族の写真</strong><br />
   <% @family.image? %>
-  <%= image_tag @family.image.url ,size: '550x400' %>
-</p>
+  <%= image_tag @family.image.url ,size: '550x550', class:"rounded-circle"%>
+</h2>
 
 <h2>わたしの家族</h2>
 <% if @family.members.exists?%>
   <% @family.members.each do |member| %>
     <tr>
-        <% if member.user.account.name? %>
+      <div class="members">
+        <% unless member.user.account == nil %>
           <td><%= member.user.account.name %></td>
+          <td><%= image_tag member.user.account.icon.url, size: '300x300', class:"rounded-circle"  %></td>
         <% end %>
-        <% if member.user.account.icon? %>
-          <td><%= image_tag member.user.account.icon.url, size: '300x300'  %></td>
-        <% end %>
-    </tr><br>
+      <div>
+    </tr>
   <% end %>
 <% end %>
 <br>

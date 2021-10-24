@@ -10,27 +10,29 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-dark navbar-fixed-top navbar-inverse navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/"><img src="" id="logo" width="30" height="24">デジタル健康手帳</a>
-          <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to "メニュー", lists_index_path %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-              <% if current_user.admin? %>
-                <li class="nav-item"><%= link_to '管理者画面', rails_admin_path %></li>
+    <% unless controller.controller_name == "tops" && action_name == "index" %>
+      <header>
+        <nav class="navbar navbar-dark navbar-fixed-top navbar-inverse navbar-expand-lg">
+          <div class="container">
+            <a class="navbar-brand" href="/"><img src="" id="logo" width="30" height="24">デジタル健康手帳</a>
+            <ul class="nav navbar-nav">
+              <% if user_signed_in? %>
+                <li class="nav-item"><%= link_to "メニュー", lists_index_path %></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                <% if current_user.admin? %>
+                  <li class="nav-item"><%= link_to '管理者画面', rails_admin_path %></li>
+                <% end %>
+              <% else %>
+                <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
+                <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
+                <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
+                <li class="nav-item"><%= link_to 'ゲスト管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post %></li>
               <% end %>
-            <% else %>
-              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
-              <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
-              <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
-              <li class="nav-item"><%= link_to 'ゲスト管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post %></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
-    </header>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    <% end %>
 
     <div class="content container-fluid">
       <% if notice %>

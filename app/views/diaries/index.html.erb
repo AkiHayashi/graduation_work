@@ -14,7 +14,9 @@
     <% @diaries.each do |diary| %>
       <tr>
         <td><%= diary.title %></td>
-        <td><%= diary.content %></td>
+        <div class="diary-container">
+          <td><%= diary.content %></td>
+        </div>
         <% if diary.image? %>
           <td><%= image_tag diary.image.url, size: '400x300' %></td>
         <% else %>

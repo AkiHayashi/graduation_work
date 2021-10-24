@@ -9,10 +9,11 @@
   <%= @diary.content %>
 </p>
 
+
 <% if @diary.image? %>
 <p>
   <strong>画像</strong>
-  <%= image_tag @diary.image.url %>
+  <%= image_tag @diary.image.url, size: '550x550' %>
 </p>
 <% end %>
 

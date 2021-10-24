@@ -117,3 +117,20 @@ input[type="password"] {
   margin-top: 2em;
   margin-bottom: 0.5em;
 }
+
+.members{
+  margin: 1rem;
+  font-size: x-large;
+}
+
+.diary-container{
+  background: #eee;
+  overflow: hidden;
+  width: 100%;
+
+  td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

@@ -4,7 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name, placeholder: "(例)鈴木家" %>
+    <%= f.input :name, placeholder: "(例)鈴木" %>
     <%= f.file_field  :image, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*'  %>
   </div>
     <% if @family.image? %>
