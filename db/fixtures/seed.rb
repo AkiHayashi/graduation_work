@@ -7,7 +7,7 @@ user1 = User.create(
 Account.create(
   name: Faker::Name.first_name, 
   birth_date: DateTime.now - 10_000, 
-  icon:Rails.root.join("db/images/user1.jpg").open,
+  image: Rails.root.join("db/images/picture_#{n+1}.png").open,
   mail: Faker::Internet.email, 
   address: Faker::Address.city, 
   tel: Faker::PhoneNumber.cell_phone,
