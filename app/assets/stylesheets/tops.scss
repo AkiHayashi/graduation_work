@@ -123,14 +123,17 @@ input[type="password"] {
   font-size: x-large;
 }
 
-.diary-container{
-  background: #eee;
-  overflow: hidden;
-  width: 100%;
+.card-info {
+  padding-top: 20px;
+  margin-top: auto;
+}
 
-  td{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.card-info li h5 {
+  margin-top: 30px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.577)
+}
+
+.card-body {
+  padding: auto;
 }
