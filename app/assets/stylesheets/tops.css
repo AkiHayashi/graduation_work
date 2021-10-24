@@ -8,17 +8,18 @@ body{
 
 .content {
   flex: 1;
+  margin-bottom: 3rem;
 }
 
 header {
-  height: 70px;
+  height: auto;
   background-color: #122c49;
 }
 
 header a {
   text-decoration: none;
   color: azure;
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 footer {

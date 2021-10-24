@@ -31,14 +31,17 @@
         </div>
       </nav>
     </header>
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-    
-    <%= yield %>
+
+    <div class="content">
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+      
+      <%= yield %>
+    </div>
 
     <footer class="footer">
       <p class="text-muted">©︎ 2021 kenkoutecho</p>

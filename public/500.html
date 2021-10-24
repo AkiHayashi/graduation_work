@@ -3,16 +3,21 @@
 <head>
   <title>Internal Server Error (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <style>
-  p {
+  .link_top {
     text-align: center;
     color: black;
+    font-size: large;
+    font-weight: normal;
   }
-  img{
+
+  .error img{
     display: block;
     margin: 0 auto;
-    width: 700px;
-    height: 100px;
+    width: 100%;
+    height: auto;
+    text-align: center;
   }
   </style>
 </head>
@@ -20,7 +25,7 @@
   <!-- This file lives in public/500.html -->
   <div class="error">
     <img src="/500.png">
-    <a href="/"><p>トップページに戻る</p></a>
+    <a href="/"><h3 class="link_top">トップページに戻る</h3></a>
   </div>
 </body>
 </html>
