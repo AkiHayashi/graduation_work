@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
 
   def index
-    @diaries = current_user.favorite_diaries
+    @diaries = current_user.favorite_diaries.order(created_at: "ASC")
   end
 
   def create

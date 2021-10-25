@@ -18,5 +18,10 @@
   <%= @health_status.condition%>
 </p>
 
-<%= link_to '健康記録を編集する', edit_health_status_path(@health_status) %> |
-<%= link_to '健康状態一覧に戻る', health_statuses_path %>
+<div class="btn btn-border">
+  <%= link_to '健康記録を編集する', edit_health_status_path(@health_status) %>
+</div>
+<br><br>
+<div class="btn btn-border">
+  <%= link_to '健康状態一覧に戻る', health_statuses_path %>
+</div>

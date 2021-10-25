@@ -30,9 +30,9 @@
         <td><%= health_status.pulse %></td>
         <td><%= health_status.condition %></td>
         <td><%= l health_status.created_at, format: :long %></td>
-        <td><%= link_to 'この記録の詳細を見る', health_status %></td>
-        <td><%= link_to 'この記録を編集する', edit_health_status_path(health_status) %></td>
-        <td><%= link_to '削除', health_status, method: :delete, data: { confirm: '本当に削除してもいいですか?' } %></td>
+        <td><%= link_to 'この記録の詳細を見る', health_status, class:"btn btn-outline-success" %></td>
+        <td><%= link_to 'この記録を編集する', edit_health_status_path(health_status), class:"btn btn-outline-primary" %></td>
+        <td><%= link_to '削除', health_status, method: :delete, data: { confirm: '本当に削除してもいいですか?' }, class:"btn btn-outline-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,6 @@
 
 <br>
 
-<%= link_to '健康状態を入力する', new_health_status_path %>
+<div class="btn btn-border">
+  <%= link_to '健康状態を入力する', new_health_status_path %>
+</div>

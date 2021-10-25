@@ -4,12 +4,12 @@ class DiariesController < ApplicationController
 
   # GET /diaries
   def index
-    @diaries = current_user.diaries
+    @diaries = current_user.diaries.order(created_at: "ASC")
     if current_user.families.exists?
       @families = current_user.families
       @families.each {|family| @members = family.members}
       @family_members_ids = @members.map {|member| member.user_id }
-      @diaries = Diary.where(user_id: @family_members_ids )
+      @diaries = Diary.where(user_id: @family_members_ids ).order(created_at: "ASC")
     end
   end
 
