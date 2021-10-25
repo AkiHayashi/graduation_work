@@ -18,9 +18,9 @@
         <td><%= medication_history.usage %></td>
         <td><%= l medication_history.prescription_on, format: :short %></td>
         <td><%= medication_history.note %></td>
-        <td><%= link_to 'この服薬歴の詳細を見る', medication_history %></td>
-        <td><%= link_to 'この服薬歴を編集する', edit_medication_history_path(medication_history) %></td>
-        <td><%= link_to '削除', medication_history, method: :delete, data: { confirm: '本当に削除しますか' } %></td>
+        <td><%= link_to 'この服薬歴の詳細を見る', medication_history, class:"btn btn-outline-success" %></td>
+        <td><%= link_to 'この服薬歴を編集する', edit_medication_history_path(medication_history),class:"btn btn-outline-primary" %></td>
+        <td><%= link_to '削除', medication_history, method: :delete, data: { confirm: '本当に削除しますか' },class:"btn btn-outline-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +28,9 @@
 
 <br>
 
-<%= link_to '新しい服薬歴を作成する', new_medication_history_path %>
-<%= link_to 'かかりつけ薬局', pharmacies_path %>
+<div class="btn btn-border">
+  <%= link_to '新しい服薬歴を作成する', new_medication_history_path %>
+</div><br><br>
+<div class="btn btn-border">
+  <%= link_to 'かかりつけ薬局', pharmacies_path %>
+</div>

@@ -28,10 +28,16 @@
 <br>
 <h5>招待</h5>
 <%= form_with model: :member, scope: :post, url: family_members_path(@family), local: true do |form| %>
-  <%= text_field_tag :email, '', size:100, placeholder: "家族のメールアドレスを入力してください" %>
-  <%= form.button :submit %>
+  <%= text_field_tag :email, '', placeholder: "家族のメールアドレス" %>
+  <div class="form-actions">
+    <%= form.button :submit, value: "招待", class:"btn btn-border" %>
+  </div>
 <% end %>
 
-<%= link_to '削除', family_path(@family), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to '編集', edit_family_path(@family) %> |
-<%= link_to '戻る', families_path %>
+
+<br><br><br>
+<%= link_to '削除', family_path(@family), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-outline-danger" %>
+
+<%= link_to '編集', edit_family_path(@family), class:"btn btn-outline-primary" %><br><br>
+
+<div class="btn btn-border"><%= link_to '戻る', families_path %></diiv>

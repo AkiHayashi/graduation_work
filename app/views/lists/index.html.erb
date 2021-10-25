@@ -1,6 +1,20 @@
 <h1>一覧</h1>
-
-<%= link_to "ユーザーページ", user_path(id: current_user.id) %>
-<%= link_to "健康管理", menu_health_status_path(id: current_user.id) %>
-<%= link_to "日記", menu_diary_path(id: current_user.id)  %>
-<%= link_to "家族ページ", menu_family_path(id: current_user.id) %>
+<div class="container-fluid">
+<div class="row">
+  <div class = "option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <%= image_tag "mypage.png",class:"img",  class:"rounded-circle" %>
+      <a><%= link_to "わたしのページ", user_path(id: current_user.id) %></a>
+  </div>
+  <div class = "option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <%= image_tag "HSpage.png",class:"img",  class:"rounded-circle" %>
+    <a><%= link_to "健康管理", menu_health_status_path(id: current_user.id) %></a>
+  </div>
+  <div class = "option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <%= image_tag "diarypage.png",class:"img",  class:"rounded-circle" %>
+    <a><%= link_to "日記", menu_diary_path(id: current_user.id)  %></a>
+  </div>
+  <div class = "option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <%= image_tag "familypage.png",class:"img",  class:"rounded-circle" %>
+    <a><%= link_to "家族ページ", menu_family_path(id: current_user.id) %></a>
+</div>
+</div>

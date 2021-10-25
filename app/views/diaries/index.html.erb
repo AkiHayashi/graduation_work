@@ -26,12 +26,12 @@
               </h5>
             </li>
           </ul>
-            <%= link_to 'この日記の内容を見る', diary %>
+            <%= link_to 'この日記の内容を見る', diary,class:"btn btn-outline-success" %>
             <% if current_user.own?(diary) %>
-              <%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete %>
-              <%= link_to '編集', edit_diary_path(diary)  %>
+              <%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete, class:"btn btn-outline-danger" %>
+              <%= link_to '編集', edit_diary_path(diary), class:"btn btn-outline-primary" %>
             <% end %>
-            <div id="favorite_buttons_<%= diary.id %>">
+            <div class="fav" id="favorite_buttons_<%= diary.id %>">
               <%= render "favorites/favorites", diary: diary %>
             </div>
         </div>
@@ -42,5 +42,5 @@
 
 <br>
 
-<%= link_to '日記を書く', new_diary_path %>
-<%= link_to 'メニューに戻る', menu_diary_path(id: current_user.id) %>
+<div class="btn btn-border"><%= link_to '日記を書く', new_diary_path %></div>
+<div class="btn btn-border"><%= link_to 'メニューに戻る', menu_diary_path(id: current_user.id) %></div>

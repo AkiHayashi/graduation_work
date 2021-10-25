@@ -14,7 +14,7 @@
       <header>
         <nav class="navbar navbar-dark navbar-fixed-top navbar-inverse navbar-expand-lg">
           <div class="container">
-            <a class="navbar-brand" href="/"><img src="" id="logo" width="30" height="24">デジタル健康手帳</a>
+            <a class="navbar-brand" href="/"><%= image_tag ("toplogo.png")%>デジタル健康手帳</a>
             <ul class="nav navbar-nav">
               <% if user_signed_in? %>
                 <li class="nav-item"><%= link_to "メニュー", lists_index_path %></li>
