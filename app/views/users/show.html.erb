@@ -14,7 +14,9 @@
 <p>メールアドレス<%= @user.account.mail %></p>
 <p>お薬のアレルギー<%= @user.account.allergy %></p>
 
-<%= link_to "既往歴を見る", medical_histories_path %><br>
-<%= link_to '服薬歴を見る', medication_histories_path %>
+<div class="btn btn-border">
+  <%= link_to "既往歴を見る", medical_histories_path %></div><br><br>
+<div class="btn btn-border">
+  <%= link_to '服薬歴を見る', medication_histories_path %></div><br><br>
 
-<%= link_to "プロフィール編集", edit_user_registration_path %>
+<div class="btn btn-border"><%= link_to "プロフィール編集", edit_user_registration_path %></div>

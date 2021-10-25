@@ -1,0 +1,280 @@
+body{
+  padding:0;
+  margin:0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('back.jpg');
+  background-size: cover;
+}
+
+.navbar-brand img{
+  height: 50px;
+}
+
+.content {
+  flex: 1;
+  margin: 3rem;
+  font-family: 'Shippori Mincho', serif !important;
+}
+
+header {
+  height: auto;
+  background-color: #3e214c;
+  font-family: 'Shippori Mincho', serif !important;
+  min-width:100vw;
+}
+
+header a {
+  text-decoration: none;
+  color: azure;
+  margin-left: 1rem;
+}
+
+footer {
+  margin-top: auto !important;
+  bottom: 0;
+}
+
+.footer p {
+  text-align: center;
+}
+
+html{
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+input[type="text"] {
+  width: 400px;
+  height: 60px;
+}
+
+
+input[type="password"] {
+  width: 300px;
+  height: 40px;
+}
+
+.to_right{
+  margin-top: 1rem;
+  text-align: right;
+}
+.top_menu_introduction{
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  margin-right: 0;
+  text-align: left;
+	display: inline-block;
+  max-width: 95vw;
+}
+.top_menu_introduction ul{
+  margin-left: 3%;
+}
+
+.top_menu_introduction li{
+  padding-left: 3%;
+  font-size: larger;
+}
+.mains{
+  padding-top: 2rem;
+}
+
+.options{
+  display: block;
+}
+
+.mains .btn{
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.btn-border {
+  border: 2px solid #122c49 !important;
+  border-radius: 0;
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.btn-border a {
+  text-decoration: none;
+  color: #122c49;
+  font-size: large;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn-border:hover {
+  -webkit-box-shadow: -4px -4px 0 #000;
+  box-shadow: -4px -4px 0 #000;
+}
+
+.actions{
+  margin-top: 1rem;
+}
+
+.confirm_account{
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.members{
+  margin: 1rem;
+  font-size: x-large;
+}
+
+.card-info {
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+.card-info li h5 {
+  margin-top: 30px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.577)
+}
+
+.card-body {
+  padding: auto;
+}
+
+.submit-button {
+  margin: 1rem;
+  display       : inline-block;
+  // border-radius : 30% !important;          /* 角丸       */
+  font-size     : 1.5rem !important;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 28px 28px;   /* 余白       */
+  background-color    : #3e214c !important;     /* 背景色     */
+  color         : #ffffff !important;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #3e214c !important;    /* 枠の指定 */
+}
+.submit-button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #3e214c !important;
+  background    : #ffffff !important; 
+}
+
+.adjust{
+  padding-top: 30px !important;
+}
+
+.option {
+//   position: relative;
+//   border: solid #3e214c 2px;
+//   margin: 1rem 1rem 1rem 3rem;
+//   border-radius: 50% !important;
+  height: auto;
+  width: 100%;
+//   box-shadow    : 6px 6px 3px #666666;
+  }
+.option img{
+  height: auto;
+  width: 50%;
+}
+.option a {
+  // position: absolute;
+  top: 65%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  /*以下装飾*/
+  margin:0;/*余計な隙間を除く*/
+  font-size: xx-large;/*文字サイズ*/
+  color: #3e214c;/*文字色*/
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.666);
+  }
+
+.option a:hover{/*カーソルを当てたとき*/
+  background: #FFFFFF;/*背景を半透明に*/
+  }
+
+  .wrapper{
+    background: url("top.png") no-repeat center center / cover;
+  }
+  .top-header {
+    margin: 0 !important;
+    margin: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    overflow: auto;
+  }
+  // /*ロゴ画像*/
+  // .top-header #logo img {
+  //   display: inline;
+  //   width: 20%;	/*画像の幅*/
+  //   position: absolute;
+  //   left: 40%;		/*ロゴやメニューが入っているブロックに対して、左からの配置場所の指定。*/
+  //   bottom: 50%;	/*ロゴやメニューが入っているブロックに対して、下からの配置場所の指定。*/
+  // }
+
+  #logo {
+    height: 300px;
+  }
+  #title {
+    padding-top: 1px;
+    padding-bottom: 80px;
+  }
+
+  .blank_area {
+    height: 50px;
+  }
+
+  .top-header #caption{
+    
+  }
+
+  #menubar {
+    // position: absolute;
+    margin-top: 50px;
+    bottom: 20%;	/*ロゴやメニューが入っているブロックに対して、下からの配置場所の指定。*/
+    left: 0px;
+    width: 100%;
+    text-align: center;
+  }
+  /*メニュー１個あたりの指定*/
+  #menubar li {
+    display: inline-block;
+    margin: 0 1%;
+    animation-name: opa1;
+    animation-delay: 1S;
+    animation-duration: 1S;
+    animation-fill-mode: both;
+  }
+  #menubar li a {
+    font-size: large;
+    text-decoration: none;display: block;text-align: center;
+    width: 200px;	/*メニューの幅*/
+    color: #3e214c;	/*文字色*/
+    border-bottom: 2px solid transparent;	/*下線の幅、線種、色。transparentは透明の事。*/
+    padding-bottom: 7px;	/*下線と文字の間にとる余白*/
+  }
+  /*マウスオン時の指定*/
+  #menubar li a:hover {
+    border-bottom: 2px solid #fff;	/*下線の幅、線種、色*/
+    letter-spacing: 0.1em;			/*文字間隔を少しだけ広くする指定。そのままがいいならこの１行を削除。*/
+  }
+
+  .top-header h1{
+    margin: 0px;
+    padding: 10%;
+    color: #3e214c;
+  }
+  .top-header h2{
+    color: #3e214c;
+  }
+  
+  .fav a{
+    font-size: large;
+    color: #3e214c !important;
+  }

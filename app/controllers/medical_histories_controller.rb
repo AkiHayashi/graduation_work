@@ -25,8 +25,6 @@ class MedicalHistoriesController < ApplicationController
   # POST /medical_histories
   def create
     @medical_history = current_user.medical_histories.new(medical_history_params)
-    # binding.irb
-    # @hospital = @medical_history.hospitals.build
     if @medical_history.save
       redirect_to @medical_history, notice: '既往歴が作成されました。'
     else

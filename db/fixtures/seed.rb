@@ -7,17 +7,17 @@ user1 = User.create(
 Account.create(
   name: Faker::Name.first_name, 
   birth_date: DateTime.now - 10_000, 
-  icon:File.open("./public/images/user1.jpg"),
+  icon: Rails.root.join("db/fixtures/images/user1.png").open,
   mail: Faker::Internet.email, 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.cell_phone,
+  tel: 00000000,
   allergy: "無し", 
   admin: false, 
-  user_id: user1.id,
+  user_id: user1.id
 )
 
 user2 =  User.create(
-  login_name: "おじいちゃん",
+  login_name: "家族１",
   password: 'password',
   admin: false
 )
@@ -25,32 +25,50 @@ user2 =  User.create(
 Account.create(
   name: Faker::Name.first_name, 
   birth_date: DateTime.now - 10_000, 
-  icon:File.open("./public/images/user2.jpg"),
-  mail: "ex@ex.com", 
+  icon: Rails.root.join("db/fixtures/images/user2.png").open,
+  mail: Faker::Internet.email,
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.cell_phone, 
+  tel: 00000000, 
   allergy: "無し", 
   admin: false, 
-  user_id: user2.id,
+  user_id: user2.id
 )
 
 user3 =  User.create(
-  login_name: "おばあちゃん",
+  login_name: "家族２",
   password: 'password',
   admin: false
 )
-
 Account.create(
   name: Faker::Name.first_name, 
   birth_date: DateTime.now - 10_000, 
-  icon:File.open("./public/images/user3.jpg"),
+  icon: Rails.root.join("db/fixtures/images/user3.png").open,
   mail: Faker::Internet.email, 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.cell_phone, 
+  tel: 00000000, 
   allergy: "無し", 
   admin: false, 
-  user_id: user3.id,
+  user_id: user3.id
 )
+
+user4 =  User.create(
+  login_name: "家族３",
+  password: 'password',
+  admin: false
+)
+Account.create(
+  name: Faker::Name.first_name, 
+  birth_date: DateTime.now - 10_000, 
+  icon:Rails.root.join("db/fixtures/images/user4.png").open,
+  mail: "ex@ex.com", 
+  address: Faker::Address.city, 
+  tel: 00000000, 
+  allergy: "無し", 
+  admin: false, 
+  user_id: user4.id
+)
+
+
 
 admin_user =  User.create(
   login_name: "ゲスト管理者",
@@ -61,13 +79,13 @@ admin_user =  User.create(
 Account.create(
   name: Faker::Name.first_name, 
   birth_date: DateTime.now - 10_000, 
-  icon:File.open("./public/images/admin_user.jpg"),
+  icon:Rails.root.join("db/fixtures/images/admin_user.png").open,
   mail: Faker::Internet.email, 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.cell_phone, 
+  tel: 00000000, 
   allergy: "無し", 
   admin: true, 
-  user: admin_user
+  user_id: admin_user.id
 )
 
 medical_history1 = MedicalHistory.create(
@@ -169,7 +187,7 @@ pharmacy2 = Pharmacy.create(
 
 medication_history2 = 5.times do |n|
 MedicationHistory.create(
-    name: "medication#{n}", 
+    name: "medication#{n+1}", 
     usage: '内服', 
     prescription_on: DateTime.now - 30, 
     note: '', 
@@ -213,13 +231,25 @@ end
 
 family1 = Family.create(
   name: Faker::Name.last_name , 
-  image:File.open("./public/images/family.jpg"), 
+  image:Rails.root.join("db/images/family.png").open,
+  user_id: user1.id
+)
+
+5.times do |n|
+  Family.create(
+    name: Faker::Name.last_name , 
+    image:Rails.root.join("db/images/family.png").open,
+  )
+end
+
+Member.create(
+  family_id: family1.id,
   user_id: user1.id
 )
 
 Member.create(
   family_id: family1.id,
-  user_id: user1.id
+  user_id: user2.id
 )
 
 Member.create(
@@ -232,52 +262,55 @@ Member.create(
   user_id: admin_user.id
 )
 
-Diary.create(
+diary1 = Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary1.jpg"), 
+  image: Rails.root.join("db/images/diary1.png").open, 
   user_id: user1.id
 )
-Diary.create(
+# image: Rails.root.join("public/images/diary1.jpg").open, 
+
+diary2 = Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary2.jpg"), 
+  image: Rails.root.join("db/images/diary2.png").open, 
   user_id: user1.id
 )
-Diary.create(
+
+diary3 = Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary3.jpg"), 
+  image: Rails.root.join("db/images/diary3.png").open,
   user_id: user2.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary4.jpg"), 
+  image: Rails.root.join("db/images/diary4.png").open, 
   user_id: user2.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary5.jpg"), 
+  image: Rails.root.join("db/images/diary5.png").open, 
   user_id: user3.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary6.jpg"), 
+  image: Rails.root.join("db/images/diary6.png").open,
   user_id: user3.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary7.jpg"), 
+  image: Rails.root.join("db/images/diary7.png").open, 
   user_id: admin_user.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: File.open("./public/images/diary8.jpg"), 
+  image: Rails.root.join("db/images/diary8.png").open,
   user_id: admin_user.id
 )
 
@@ -324,3 +357,24 @@ end
   created_at: Faker::Date.between(from: 5.days.ago, to: Date.today)
 )
 end
+
+Favorite.create(
+  user_id: user1.id,
+  diary_id: diary1.id
+)
+Favorite.create(
+  user_id: user1.id,
+  diary_id: diary2.id
+)
+Favorite.create(
+  user_id: user2.id,
+  diary_id: diary1.id
+)
+Favorite.create(
+  user_id: user2.id,
+  diary_id: diary2.id
+)
+Favorite.create(
+  user_id: user3.id,
+  diary_id: diary1.id
+)

@@ -9,12 +9,15 @@
   <%= @diary.content %>
 </p>
 
+
 <% if @diary.image? %>
 <p>
   <strong>画像</strong>
-  <%= image_tag @diary.image.url %>
+  <%= image_tag @diary.image.url, size: '550x550' %>
 </p>
 <% end %>
 
-<%= link_to '日記を編集する', edit_diary_path(@diary) %>
-<%= link_to '日記の一覧に戻る', diaries_path %>
+<div class="btn btn-border">
+<%= link_to '日記を編集する', edit_diary_path(@diary) %></div><br><br>
+<div class="btn btn-border">
+<%= link_to '日記の一覧に戻る', diaries_path %></div>

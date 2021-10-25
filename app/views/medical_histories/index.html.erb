@@ -22,13 +22,13 @@
           <td>無し</td>
         <% end %>
         <% if medical_history.surgery_on? %>
-          <td><%= l medical_history.surgery_on, format: :long %></td>
+          <td><%= l medical_history.surgery_on, format: :short %></td>
         <% else %>
           <td>無し</td>
         <% end %>
-        <td><%= link_to 'この既往歴の詳細を見る', medical_history %></td>
-        <td><%= link_to 'この既往歴を編集する', edit_medical_history_path(medical_history) %></td>
-        <td><%= link_to '削除', medical_history, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td><%= link_to 'この既往歴の詳細を見る', medical_history, class:"btn btn-outline-success" %></td>
+        <td><%= link_to 'この既往歴を編集する', edit_medical_history_path(medical_history) ,class:"btn btn-outline-primary"%></td>
+        <td><%= link_to '削除', medical_history, method: :delete, data: { confirm: '本当に削除しますか？' },class:"btn btn-outline-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +36,8 @@
 
 <br>
 
-<%= link_to 'かかりつけ医一覧を見る', hospitals_path %><br>
-<%= link_to '新しい既往歴を作成する', new_medical_history_path %>
+<br><br>
+<div class="btn btn-border">
+  <%= link_to 'かかりつけ医一覧を見る', hospitals_path %></div><br><br>
+<div class="btn btn-border">
+<%= link_to '新しい既往歴を作成する', new_medical_history_path %></div>

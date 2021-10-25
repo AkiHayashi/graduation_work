@@ -9,5 +9,12 @@ class MedicationHistory < ApplicationRecord
     validates :usage
     validates :prescription_on
   end
+
+  validate :date_before_today
+  
+  def date_before_today
+    return if prescription_on.blank?
+    errors.add(:prescription_on, "は今日以前のものを選択してください") if prescription_on > Date.today
+  end
   
 end

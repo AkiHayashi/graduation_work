@@ -14,7 +14,7 @@
       <tr>
         <td><%= family.name %><p>家</p></td>
         <td><%= image_tag family.image.url, size: '400x300'%></td>
-        <td><%= link_to 'この家族のページへ', family %></td>
+        <td><div class="btn btn-border"><%= link_to 'この家族のページへ', family %></td></div>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,5 @@
 
 <br>
 
-<%= link_to '新しい家族を作成する', new_family_path %>
+<div class="btn btn-border">
+<%= link_to '新しい家族を作成する', new_family_path %></div>

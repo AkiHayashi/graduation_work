@@ -8,4 +8,11 @@ class MedicalHistory < ApplicationRecord
     validates :start_on
   end
 
+  validate :date_before_today
+  
+  def date_before_today
+    return if start_on.blank?
+    errors.add(:start_on, "は今日以前のものを選択してください") if start_on > Date.today
+  end
+
 end

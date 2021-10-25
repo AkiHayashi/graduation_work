@@ -16,11 +16,14 @@
         <td><%= hospital.name %></td>
         <td><%= hospital.address %></td>
         <td><%= hospital.tel %></td>
-        <td><%= link_to 'この病院の詳細を見る', hospital %></td>
-        <td><%= link_to 'この病院の情報を編集する', edit_hospital_path(hospital) %></td>
-        <td><%= link_to '削除', hospital, method: :delete, data: { confirm: '本当に削除しますか' } %></td>
+        <td><%= link_to 'この病院の詳細を見る', hospital, class:"btn btn-outline-success" %></td>
+        <td><%= link_to 'この病院の情報を編集する', edit_hospital_path(hospital), class:"btn btn-outline-primary" %></td>
+        <td><%= link_to '削除', hospital, method: :delete, data: { confirm: '本当に削除しますか' } , class:"btn btn-outline-danger"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-    <%= link_to '既往歴一覧', medical_histories_path %>
+
+<div class="form-actions btn btn-border">
+  <%= link_to '既往歴一覧', medical_histories_path %>
+</div>

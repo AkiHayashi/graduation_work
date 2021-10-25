@@ -1,0 +1,42 @@
+<h1>お気に入りの日記</h1>
+
+<div class="row">
+  <% @diaries.each do |diary| %>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <% if diary.image? %>
+              <%= image_tag diary.image.url, size: '400x400', class: "card-img-top" %>
+            <% else %>
+              <%= image_tag "default2.png", size: '400x300' %>
+              画像はありません
+            <% end %>
+          </div>
+          <ul class="card-info row">
+            <li class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+              <%= diary.user.account.name %>
+            </li>
+            <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <%= image_tag diary.user.account.icon.url,size: '100x100', class:"rounded-circle"%>
+            </li>
+            <li class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <h5 class="card-title">
+                <%= diary.title %>
+              </h5>
+            </li>
+          </ul>
+            <%= link_to 'この日記の内容を見る', diary, class:"btn btn-outline-success" %>
+            <div class="fav" id="favorite_buttons_<%= diary.id %>">
+              <%= render "favorites/favorites", diary: diary %>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="btn btn-border">
+  <%= link_to '戻る', menu_diary_path(id: current_user.id) %>
+</div>
+

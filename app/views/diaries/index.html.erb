@@ -1,40 +1,46 @@
 <h1>みんなの日記</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>題名</th>
-      <th>内容</th>
-      <th>画像</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @diaries.each do |diary| %>
-      <tr>
-        <td><%= diary.title %></td>
-        <td><%= diary.content %></td>
-        <% if diary.image? %>
-        <td><%= image_tag diary.image.url, size: '400x300' %></td>
-        <% end %>
-        <td><%= link_to 'この日記の詳細', diary %></td>
-      <% if current_user.own?(diary) %>
-        <td><%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete %></td>
-        <td><%= link_to edit_diary_path(diary) do %>
-          <%# <%= icon 'far', 'edit' %><p>✏️編集</p><% end %></td>
-      <% else %>
-          <td id="favorite_buttons_<%= diary.id %>">
-          <%= render "favorites/favorites", diary: diary %>
-          </td>
+<div class="row">
+  <% @diaries.each do |diary| %>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <% if diary.image? %>
+              <%= image_tag diary.image.url, size: '400x400', class: "card-img-top" %>
+            <% else %>
+              <%= image_tag "default2.png", size: '400x300' %>
+              画像はありません
+            <% end %>
+          </div>
+          <ul class="card-info row">
+            <li class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+              <%= diary.user.account.name %>
+            </li>
+            <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <%= image_tag diary.user.account.icon.url,size: '100x100', class:"rounded-circle"%>
+            </li>
+            <li class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <h5 class="card-title">
+                <%= diary.title %>
+              </h5>
+            </li>
+          </ul>
+            <%= link_to 'この日記の内容を見る', diary,class:"btn btn-outline-success" %>
+            <% if current_user.own?(diary) %>
+              <%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete, class:"btn btn-outline-danger" %>
+              <%= link_to '編集', edit_diary_path(diary), class:"btn btn-outline-primary" %>
+            <% end %>
+            <div class="fav" id="favorite_buttons_<%= diary.id %>">
+              <%= render "favorites/favorites", diary: diary %>
+            </div>
         </div>
-      <% end %>
-    </tr>
-    <% end %>
-
-  </tbody>
-</table>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
-<%= link_to '日記を書く', new_diary_path %>
+<div class="btn btn-border"><%= link_to '日記を書く', new_diary_path %></div>
+<div class="btn btn-border"><%= link_to 'メニューに戻る', menu_diary_path(id: current_user.id) %></div>

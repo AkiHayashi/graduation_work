@@ -51,7 +51,7 @@ ja:
           id: ID
           name: 傷病名
           start_on: 治療開始日
-          surgery: 手術
+          surgery: 手術名
           surgery_on: 手術日
         medication_history:
           id: ID

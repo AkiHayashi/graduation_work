@@ -18,9 +18,12 @@
     <%# </div> %>
   <%# <% end %> 
 
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
+  <div class="form-actions">
+    <%= f.submit t('.sign_in'), class:"submit-button" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p class="confirm_account">はじめてアプリを利用される方はこちら</p>
+<div class="btn btn-border adjust">
+  <a><%= render "devise/shared/links" %></a>
+</div>

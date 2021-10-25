@@ -12,10 +12,10 @@
     <% if @diary.image? %>
       <%= image_tag @diary.image.url, id: 'preview', size: '300x300'%> 
     <% else %>
-      <%= image_tag "default.png",id: "preview" %>
+      <%= image_tag "default2.png",id: "preview", size: '300x300' %>
     <% end %>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit ,class:"submit-button"%>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
-<h1>New Diary</h1>
+<h1>日記を書く</h1>
 
 <%= render 'form', diary: @diary %>
 
-<%= link_to '戻る', menu_diary_path(id: current_user.id) %>
+<div class="btn btn-border"><%= link_to '戻る', menu_diary_path(id: current_user.id) %></div>
