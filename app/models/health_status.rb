@@ -6,5 +6,7 @@ class HealthStatus < ApplicationRecord
     validates :diastolic, numericality: {only_integer: true, greater_than_or_equal_to: 50}
     validates :pulse, numericality: {only_integer: true, greater_than_or_equal_to: 50}
   end
+
+  validates :condition, length: { maximum: 200 }
   
 end

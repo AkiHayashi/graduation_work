@@ -76,7 +76,6 @@ RSpec.describe 'Family', type: :system do
           click_on 'この家族のページへ'
           find('input[type="text"]').set('ex2@ex.com')
           click_button
-          expect(page).to have_content 'メンバーを追加しました'
           expect(page).to have_content 'ケンコウ・ボブ'
         end
       end

@@ -29,7 +29,7 @@ RSpec.describe 'Medical History', type: :system do
           click_on '新しい既往歴を作成する'
           fill_in 'medical_history[name]', with: 'test_disease'
           # fill_in 'medical_history[hospitals_attributes][0][name]', with: 'test_hospital'
-          click_on '病院を追加しない'
+          # click_on '病院を追加しない'
           click_on '登録する'
           expect(page).to have_content '既往歴が作成されました。'
         end
@@ -43,6 +43,9 @@ RSpec.describe 'Medical History', type: :system do
           click_on '既往歴を見る'
           click_on 'この既往歴を編集する'
           fill_in 'medical_history[name]', with: 'test_disease'
+          fill_in 'medical_history_hospitals_attributes_0_tel', with: '0000000000'
+          # binding.irb
+          # click_on '病院を追加しない'
           click_on '更新する'
           expect(page).to have_content '既往歴が更新されました。'
         end

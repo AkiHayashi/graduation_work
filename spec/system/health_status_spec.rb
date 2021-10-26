@@ -37,6 +37,7 @@ RSpec.describe 'Health Status', type: :system do
         it 'Health Status information will be changed' do
           login
           click_on '健康管理'
+          sleep 0.2
           click_on '過去の健康記録を見る'
           click_on 'この記録を編集する'
           fill_in 'health_status[condition]', with: '編集成功'
