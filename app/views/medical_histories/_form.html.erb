@@ -21,17 +21,16 @@
   <h3>病院</h3>
   <div id="hospitals">
     <%= f.simple_fields_for :hospitals do |hospital| %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= render 'hospital_fields', f: hospital %>
     <% end %>
     <div id="links">
     <br />
-    <div class="btn btn-outline-success">
-      <%= link_to_add_association '病院を追加する',f, :hospitals %></div><br /><br />
+    <div>
+      <%= link_to_add_association '病院を追加する',f, :hospitals, class:"btn btn-outline-success"%></div><br /><br />
     </div>
   </div>
 
-  <div class="form-actions btn btn-border">
-    <%= f.submit%>
+  <div>
+    <%= f.submit %>
   </div><br><br>
 <% end %>

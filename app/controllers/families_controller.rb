@@ -26,7 +26,7 @@ class FamiliesController < ApplicationController
 
     if @family.save
       @family.invite_member(current_user)
-      redirect_to @family, notice: '新しい家族を作りました。'
+      redirect_to @family, notice: '新しい家族を追加しました'
     else
       render :new
     end

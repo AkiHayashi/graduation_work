@@ -1,7 +1,7 @@
 <%= form_with(model: hospital, local: true) do |form| %>
   <% if hospital.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
+      <h2><%= pluralize(hospital.errors.count, "件") %> のエラーが発生しました</h2>
 
       <ul>
       <% hospital.errors.full_messages.each do |message| %>
@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-
+<br>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "(例)あいう病院" %>
   </div>
-
+<br>
   <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address, placeholder: "(例)東京都" %>
   </div>
-
+<br>
   <div class="field">
     <%= form.label :tel %>
-    <%= form.text_field :tel, placeholder: "(例)012-345-6789" %>
+    <%= form.text_field :tel, placeholder: "(例)0123456789" %>
   </div>
-
+<br>
   <div class="form-actions">
-    <%= form.submit, class:"submit-button" %>
+    <%= form.submit %>
   </div>
 <% end %>

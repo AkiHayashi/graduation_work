@@ -1,5 +1,9 @@
 <h1>健康管理</h1>
 
-<%= link_to "健康状態を記録する", new_health_status_path(id: current_user.id) %>
-<%= link_to "過去の健康記録を見る", health_statuses_path(id: current_user.id) %>
-
+<div class="btn btn-border">
+  <%= link_to "健康状態を記録する", new_health_status_path(id: current_user.id) %>
+</div>
+<br><br>
+<div class="btn btn-border">
+  <%= link_to "過去の健康記録を見る", health_statuses_path(id: current_user.id) %>
+</div>

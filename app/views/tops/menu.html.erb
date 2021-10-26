@@ -20,11 +20,16 @@
     </div>
   </div> 
 
-
+<% unless user_signed_in? %>
   <div class="mains options col-xs-12 col-sm-12 col-md-4  col-lg-4">
     <div class="btn btn-border"><%= link_to "新規登録", new_user_registration_path %></div><br>
     <div class="btn btn-border"><%= link_to "ログイン", new_user_session_path %></div>
   </div>
+<% else %>
+  <div class="mains options col-xs-12 col-sm-12 col-md-4  col-lg-4">
+    <h4>現在<%= "#{current_user.login_name}" %>でログイン中です</h4>
+  </div>
+<% end %>
 
 </div>
 <%# <h1>説明動画</h1> %>

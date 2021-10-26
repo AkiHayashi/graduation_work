@@ -28,7 +28,7 @@
           </ul>
             <%= link_to 'この日記の内容を見る', diary,class:"btn btn-outline-success" %>
             <% if current_user.own?(diary) %>
-              <%= link_to '削除',  diary_path(diary), data: { confirm: 'Are you sure?'}, method: :delete, class:"btn btn-outline-danger" %>
+              <%= link_to '削除',  diary_path(diary), data: { confirm: '本当に削除しますか?'}, method: :delete, class:"btn btn-outline-danger" %>
               <%= link_to '編集', edit_diary_path(diary), class:"btn btn-outline-primary" %>
             <% end %>
             <div class="fav" id="favorite_buttons_<%= diary.id %>">
