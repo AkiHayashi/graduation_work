@@ -1,6 +1,8 @@
 class FamiliesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_family, only: %i[show edit update destroy]
+  before_action :current_user_restriction_family, only: %i[show edit update destroy]
+
 
   # GET /families
   def index
@@ -54,6 +56,12 @@ class FamiliesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_family
       @family = Family.find(params[:id])
+    end
+
+    def current_user_restriction_family
+      unless  @family.users.ids.include?(current_user.id)
+        redirect_to families_path, alert: 'アクセス権限がありません'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

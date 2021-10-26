@@ -1,6 +1,7 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_diary, only: [:show, :edit, :update, :destroy]
+  before_action :set_diary, only: %i[show edit update destroy]
+  before_action :current_user_restriction_diary, only: %i[show edit update destroy]
 
   # GET /diaries
   def index
@@ -61,6 +62,11 @@ class DiariesController < ApplicationController
       @diary = Diary.find(params[:id])
     end
 
+    def current_user_restriction_diary
+      if current_user.id != @diary.user.id 
+        redirect_to diaries_path, alert: 'アクセス権限がありません'
+      end
+    end
     # Only allow a trusted parameter "white list" through.
     def diary_params
       params.require(:diary).permit(:title, :content, :image, :image_cache)

@@ -1,18 +1,20 @@
 <h1>わたしのページ</h1>
-<p>プロフィール画像
+<br />
+
+<p><strong>プロフィール画像</strong><br />
 <% if @user.account.icon? %>
-  <%= image_tag @user.account.icon.url, class: "icon", alt: "ユーザーアイコン", size: '300x300'  %>
+  <%= image_tag @user.account.icon.url, class: "icon", alt: "ユーザーアイコン", size: '300x300', class:"rounded-circle"  %>
 <% else %>
-  <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", size: '300x300' %>
+  <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", size: '300x300', class:"rounded-circle" %>
 <% end %>
 </p>
-<p>ログイン名<%= @user.login_name %></p>
-<p>本名<%= @user.account.name %></p>
-<p>生年月日<%= @user.account.birth_date %></p>
-<p>住所<%= @user.account.address %></p>
-<p>電話番号<%= @user.account.tel %></p>
-<p>メールアドレス<%= @user.account.mail %></p>
-<p>お薬のアレルギー<%= @user.account.allergy %></p>
+<p><strong>ログイン名</strong><%= @user.login_name %></p>
+<p><strong>本名</strong><%= @user.account.name %></p>
+<p><strong>生年月日</strong><%= l @user.account.birth_date, format: :long %></p>
+<p><strong>住所</strong><%= @user.account.address %></p>
+<p><strong>電話番号</strong><%= @user.account.tel %></p>
+<p><strong>メールアドレス</strong><%= @user.account.mail %></p>
+<p><strong>お薬のアレルギー</strong><%= @user.account.allergy %></p>
 
 <div class="btn btn-border">
   <%= link_to "既往歴を見る", medical_histories_path %></div><br><br>

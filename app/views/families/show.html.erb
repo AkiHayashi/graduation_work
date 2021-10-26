@@ -30,7 +30,7 @@
 <%= form_with model: :member, scope: :post, url: family_members_path(@family), local: true do |form| %>
   <%= text_field_tag :email, '', placeholder: "家族のメールアドレス" %>
   <div class="form-actions">
-    <%= form.button :submit, value: "招待", class:"btn btn-border" %>
+    <%= form.button :招待, class:"btn btn-border" %>
   </div>
 <% end %>
 

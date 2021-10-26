@@ -133,13 +133,24 @@ input[type="password"] {
 }
 
 .card-info li h5 {
-  margin-top: 30px;
+  margin-top: 21px;
   text-align: center;
   background: rgba(255, 255, 255, 0.577)
 }
 
+.card-info li p {
+  max-height: 100px;
+}
+
+.card-info {
+  padding-left: 10px;
+}
+
 .card-body {
-  padding: auto;
+  padding-right: auto;
+  padding-left: auto;
+  padding-top: auto;
+  padding-bottom: 0 !important;
 }
 
 .submit-button {
@@ -283,4 +294,8 @@ input[type="password"] {
   .fav a{
     font-size: large;
     color: #3e214c !important;
+  }
+
+  img {
+    object-fit: cover;
   }

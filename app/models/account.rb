@@ -4,7 +4,7 @@ class Account < ApplicationRecord
   mount_uploader :icon, IconUploader
 
   with_options presence: true do
-    validates :name, length: { maximum: 50 }
+    validates :name, length: { maximum: 10 }
     validates :birth_date
     validates :mail,  length: { maximum: 100 },
                       format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i},
