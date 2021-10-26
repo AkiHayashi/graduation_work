@@ -3,9 +3,7 @@
 <%= render 'form', diary: @diary %>
 
 <br><br><br>
-<div class="btn btn-border">
-  <%= link_to '日記の詳細を見る', @diary %> 
-</div>
+<%= link_to '日記の詳細を見る', @diary, class:"btn btn-outline-success" %> 
 <br><br>
 <div class="btn btn-border">
   <%= link_to '日記の一覧に戻る', diaries_path %>

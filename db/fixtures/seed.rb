@@ -231,14 +231,14 @@ end
 
 family1 = Family.create(
   name: Faker::Name.last_name , 
-  image:Rails.root.join("db/images/family.png").open,
+  image:Rails.root.join("db/fixtures/images/family.png").open,
   user_id: user1.id
 )
 
 5.times do |n|
   Family.create(
     name: Faker::Name.last_name , 
-    image:Rails.root.join("db/images/family.png").open,
+    image:Rails.root.join("db/fixtures/images/family.png").open,
   )
 end
 
@@ -265,7 +265,7 @@ Member.create(
 diary1 = Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary1.png").open, 
+  image: Rails.root.join("db/fixtures/images/diary1.png").open, 
   user_id: user1.id
 )
 # image: Rails.root.join("public/images/diary1.jpg").open, 
@@ -273,44 +273,44 @@ diary1 = Diary.create(
 diary2 = Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary2.png").open, 
+  image: Rails.root.join("db/fixtures/images/diary2.png").open, 
   user_id: user1.id
 )
 
 diary3 = Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary3.png").open,
+  image: Rails.root.join("db/fixtures/images/diary3.png").open,
   user_id: user2.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary4.png").open, 
+  image: Rails.root.join("db/fixtures/images/diary4.png").open, 
   user_id: user2.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary5.png").open, 
+  image: Rails.root.join("db/fixtures/images/diary5.png").open, 
   user_id: user3.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary6.png").open,
+  image: Rails.root.join("db/fixtures/images/diary6.png").open,
   user_id: user3.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary7.png").open, 
+  image: Rails.root.join("db/fixtures/images/diary7.png").open, 
   user_id: admin_user.id
 )
 Diary.create(
   title: Faker::Book.title, 
   content: Faker::Quote.famous_last_words, 
-  image: Rails.root.join("db/images/diary8.png").open,
+  image: Rails.root.join("db/fixtures/images/diary8.png").open,
   user_id: admin_user.id
 )
 

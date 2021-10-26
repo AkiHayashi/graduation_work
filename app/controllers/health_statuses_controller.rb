@@ -1,6 +1,7 @@
 class HealthStatusesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_health_status, only: [:show, :edit, :update, :destroy]
+  before_action :set_health_status, only: %i[show edit update destroy]
+  before_action :current_user_restriction_hs, only: %i[show edit update destroy]
 
   # GET /health_statuses
   def index
@@ -56,6 +57,12 @@ class HealthStatusesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_health_status
       @health_status = HealthStatus.find(params[:id])
+    end
+
+    def current_user_restriction_hs
+      if current_user.id != @health_status.user.id 
+        redirect_to health_statuses_path, alert: 'アクセス権限がありません'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

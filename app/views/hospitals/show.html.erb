@@ -18,5 +18,10 @@
   <%= @hospital.medical_history.name %>
 </p>
 
-<%= link_to '病院の情報を編集する', edit_hospital_path(@hospital) %> 
-<%= link_to '病院の一覧へ戻る', hospitals_path %>
+<%= link_to '病院の情報を編集する', edit_hospital_path(@hospital) , class:"btn btn-outline-primary"%> 
+<br>
+<br>
+<br>
+<div class="btn btn-border">
+  <%= link_to '病院の一覧へ戻る', hospitals_path %>
+</div>

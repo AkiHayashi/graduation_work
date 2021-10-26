@@ -1,4 +1,9 @@
 <h1>みんなの日記</h1>
+<br>
+<br>
+<% unless @diaries.nil? %>
+<h3>まだ日記の投稿はありません</h3>
+<% end %>
 
 <div class="row">
   <% @diaries.each do |diary| %>
@@ -25,7 +30,7 @@
               </h5>
             </li>
           </ul>
-            <%= link_to 'この日記の内容を見る', diary,class:"btn btn-outline-success" %>
+            <%= link_to 'この日記の内容を見る', diary, class:"btn btn-outline-success" %>
             <% if current_user.own?(diary) %>
               <%= link_to '削除',  diary_path(diary), data: { confirm: '本当に削除しますか?'}, method: :delete, class:"btn btn-outline-danger" %>
               <%= link_to '編集', edit_diary_path(diary), class:"btn btn-outline-primary" %>
@@ -42,4 +47,7 @@
 <br>
 
 <div class="btn btn-border"><%= link_to '日記を書く', new_diary_path %></div>
+<br>
+<br>
+<br>
 <div class="btn btn-border"><%= link_to 'メニューに戻る', menu_diary_path(id: current_user.id) %></div>

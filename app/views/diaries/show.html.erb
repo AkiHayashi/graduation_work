@@ -17,7 +17,10 @@
 </p>
 <% end %>
 
+<%= link_to 'この日記を編集する', edit_diary_path(@diary), class:"btn btn-outline-primary"%>
+<br>
+<br>
+<br>
 <div class="btn btn-border">
-<%= link_to '日記を編集する', edit_diary_path(@diary) %></div><br><br>
-<div class="btn btn-border">
-<%= link_to '日記の一覧に戻る', diaries_path %></div>
+  <%= link_to '日記の一覧に戻る', diaries_path %>
+</div>

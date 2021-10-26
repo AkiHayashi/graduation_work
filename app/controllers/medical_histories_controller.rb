@@ -1,6 +1,7 @@
 class MedicalHistoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_medical_history, only: [:show, :edit, :update, :destroy]
+  before_action :set_medical_history, only: %i[show edit update destroy]
+  before_action :current_user_restriction_medical, only: %i[show edit update destroy]
 
   # GET /medical_histories
   def index
@@ -53,6 +54,12 @@ class MedicalHistoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_medical_history
       @medical_history = MedicalHistory.find(params[:id])
+    end
+
+    def current_user_restriction_medical
+      if current_user.id != @medical_history.user.id 
+        redirect_to medical_histories_path, alert: 'アクセス権限がありません'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
