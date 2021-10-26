@@ -9,19 +9,18 @@
             <% if diary.image? %>
               <%= image_tag diary.image.url, size: '400x400', class: "card-img-top" %>
             <% else %>
-              <%= image_tag "default2.png", size: '400x300' %>
-              画像はありません
+              <%= image_tag "default2.png", size: '400x400', class: "card-img-top" %>
             <% end %>
           </div>
           <ul class="card-info row">
             <li class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-              <%= diary.user.account.name %>
+              <p><%= diary.user.account.name %><p>
             </li>
             <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
               <%= image_tag diary.user.account.icon.url,size: '100x100', class:"rounded-circle"%>
             </li>
             <li class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-              <h5 class="card-title">
+              <h5 class="card-title">日記の題名：
                 <%= diary.title %>
               </h5>
             </li>
