@@ -16,15 +16,17 @@ describe 'Account', type: :model do
         expect(account).to be_valid
       end
     end
-    context 'name length will be over 50' do
+    context 'name length will be over 10' do
       it 'Fail to create Account' do
-        account = Account.new(name: "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト", birth_date: DateTime.now - 10_000, mail: "ex@ex.com", address: "テスト", tel: "0000000000", allergy: "無し", admin: false, user_id: user.id)
+        a = 't'
+        account = Account.new(name: a * 11, birth_date: DateTime.now - 10_000, mail: "ex@ex.com", address: "テスト", tel: "0000000000", allergy: "無し", admin: false, user_id: user.id)
         expect(account).not_to be_valid
       end
     end
-    context 'name length will be in 50' do
+    context 'name length will be in 10' do
       it 'Success to create Account' do
-        account = Account.new(name: "テスト", birth_date: DateTime.now - 10_000, mail: "ex@ex.com", address: "テスト", tel: "0000000000", allergy: "無し", admin: false, user_id: user.id)
+        a = 't'
+        account = Account.new(name: a * 10, birth_date: DateTime.now - 10_000, mail: "ex@ex.com", address: "テスト", tel: "0000000000", allergy: "無し", admin: false, user_id: user.id)
         expect(account).to be_valid
       end
     end

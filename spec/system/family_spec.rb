@@ -9,6 +9,7 @@ RSpec.describe 'Family', type: :system do
       user2 = FactoryBot.create(:user, login_name: "テストユーザー２")
       account2 = FactoryBot.create(:account, user: user2, mail: 'ex2@ex.com', name: 'ケンコウ・ボブ')
       @family = FactoryBot.create(:family)
+      @family2 = FactoryBot.create(:family, name:'テスト')
       FactoryBot.create(:member, user: @user, family: @family)
       visit root_path
       click_on "アプリを始める"
@@ -64,8 +65,18 @@ RSpec.describe 'Family', type: :system do
         end
       end
     end
-  
 
+    describe 'Edit Family ' do
+      context 'Users can only edit their own Family ' do
+        it 'User cannot access and others Family information' do
+          login
+          visit "/families/#{@family2.id}"
+          sleep 0.3
+          expect(page).to have_content 'アクセス権限がありません'
+        end
+      end
+    end
+  
     describe 'Invite Family Member' do
       context 'User can invite Family Member' do
         it 'New member will be shown' do

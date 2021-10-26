@@ -6,6 +6,8 @@ RSpec.describe 'User Registration', type: :system do
     before do
       @user = FactoryBot.create(:user)
       @account = FactoryBot.create(:account, user: @user)
+      @user2 = FactoryBot.create(:user, login_name:'テスト')
+      @account2 = FactoryBot.create(:account, user: @user2, mail:'test2@ex.com')
       visit root_path
       click_on "アプリを始める"
     end
@@ -63,6 +65,14 @@ RSpec.describe 'User Registration', type: :system do
           fill_in 'user[current_password]', with: @user.password
           click_on '更新'
           expect(page).to have_content 'アカウント情報を変更しました。'
+        end
+      end
+
+      context 'User can not edit information of other user' do
+        it 'Information of the user will not be changed' do
+          login
+          visit "/users/#{@user2.id}"
+          expect(page).not_to have_content 'プロフィール編集'
         end
       end
     end

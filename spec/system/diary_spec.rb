@@ -7,6 +7,8 @@ RSpec.describe 'Diary', type: :system do
       @user = FactoryBot.create(:user)
       @account = FactoryBot.create(:account, user: @user)
       @diary = FactoryBot.create(:diary, user: @user)
+      user2 = FactoryBot.create(:user, login_name:'ユーザー')
+      @diary2 = FactoryBot.create(:diary, title:'テスト', content:'テスト', user:user2 )
       visit root_path
       click_on "アプリを始める"
     end
@@ -45,6 +47,14 @@ RSpec.describe 'Diary', type: :system do
           click_on '更新する'
           expect(page).to have_content '日記の内容を更新しました'
           expect(page).to have_content '編集成功'
+        end
+      end
+      context 'User cannot edit Diary of other user ' do
+        it 'Diary  information will not be changed' do
+          login
+          visit "/diaries/#{@diary2.id}/edit"
+          sleep 0.2
+          expect(page).to have_content 'アクセス権限がありません'
         end
       end
     end

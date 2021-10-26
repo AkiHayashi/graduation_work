@@ -1,5 +1,16 @@
 <h1>お気に入りの日記</h1>
 
+<br>
+<br>
+<% unless @diaries.nil? %>
+<h3>まだ日記の投稿はありません</h3>
+<% end %>
+<br>
+<br>
+<br>
+<br>
+
+
 <div class="row">
   <% @diaries.each do |diary| %>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
@@ -20,7 +31,7 @@
               <%= image_tag diary.user.account.icon.url,size: '100x100', class:"rounded-circle"%>
             </li>
             <li class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-              <h5 class="card-title">日記の題名：
+              <h5 class="card-title">
                 <%= diary.title %>
               </h5>
             </li>

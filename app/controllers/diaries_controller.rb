@@ -50,7 +50,7 @@ class DiariesController < ApplicationController
   # DELETE /diaries/1
   def destroy
     @diary.destroy
-    redirect_to diaries_url, notice: '日記を削除しました'
+    redirect_to diaries_path, notice: '日記を削除しました'
   end
 
   def menu

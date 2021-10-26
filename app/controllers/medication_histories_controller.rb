@@ -1,6 +1,7 @@
 class MedicationHistoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_medication_history, only: [:show, :edit, :update, :destroy]
+  before_action :set_medication_history, only:  %i[show edit update destroy]
+  before_action :current_user_restriction_medication, only: %i[show edit update destroy]
 
   # GET /medication_histories
   def index
@@ -57,6 +58,11 @@ class MedicationHistoriesController < ApplicationController
       @medication_history = MedicationHistory.find(params[:id])
     end
 
+    def current_user_restriction_medication
+      if current_user.id != @medication_history.user.id 
+        redirect_to medication_histories_path, alert: 'アクセス権限がありません'
+      end
+    end
     # Only allow a trusted parameter "white list" through.
     def medication_history_params
       params.require(:medication_history).permit(

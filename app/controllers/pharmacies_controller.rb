@@ -1,7 +1,7 @@
 class PharmaciesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_pharmacy, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_pharmacy, only: %i[show edit update destroy]
+  before_action :current_user_restriction_pharmacy, only: %i[show edit update destroy]
   # GET /pharmacies
   def index
     @medication_histories = current_user.medication_histories
@@ -53,6 +53,12 @@ class PharmaciesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pharmacy
       @pharmacy = Pharmacy.find(params[:id])
+    end
+
+    def current_user_restriction_pharmacy
+      if current_user.id != @pharmacy.medication_history.user.id 
+        redirect_to pharmacies_path, alert: 'アクセス権限がありません'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
