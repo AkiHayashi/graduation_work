@@ -105,16 +105,16 @@ medical_history2 = MedicalHistory.create(
 )
 
 Hospital.create(
-  name: "hospital1", 
+  name: "病院１", 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
+  tel: 123456789, 
   medical_history_id: medical_history1.id
 )
 
 Hospital.create(
-  name: "hospital2", 
+  name: "病院２", 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
+  tel: 123456789, 
   medical_history_id: medical_history2.id
 )
 
@@ -127,9 +127,9 @@ medical_history3 = MedicalHistory.create(
 )
 
 Hospital.create(
-  name: "hospital3", 
+  name: "病院３", 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
+  tel: 123456789, 
   medical_history_id: medical_history3.id
 )
 
@@ -142,9 +142,9 @@ medical_history4 = MedicalHistory.create(
 )
 
 Hospital.create(
-  name: "hospital4", 
+  name: "病院４", 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
+  tel: 123456789, 
   medical_history_id: medical_history4.id
 )
 
@@ -157,14 +157,47 @@ medical_history5 = MedicalHistory.create(
 )
 
 Hospital.create(
-  name: "hospital5", 
+  name: "病院５", 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
+  tel: 123456789, 
   medical_history_id: medical_history5.id
 )
 
 medication_history1 = MedicationHistory.create(
-    name: "medication1", 
+    name: "お薬１", 
+    usage: '内服', 
+    prescription_on: DateTime.now - 10, 
+    note: '', 
+    user_id: user1.id
+)
+
+medication_history2 = MedicationHistory.create(
+    name: "お薬２", 
+    usage: '内服', 
+    prescription_on: DateTime.now - 10, 
+    note: '', 
+    user_id: user1.id
+)
+
+
+medication_history3 = MedicationHistory.create(
+  name: "お薬３", 
+  usage: '内服', 
+  prescription_on: DateTime.now - 10, 
+  note: '', 
+  user_id: user1.id
+)
+
+medication_history4 = MedicationHistory.create(
+    name: "お薬４", 
+    usage: '内服', 
+    prescription_on: DateTime.now - 10, 
+    note: '', 
+    user_id: user1.id
+)
+
+medication_history5 = MedicationHistory.create(
+    name: "お薬５", 
     usage: '内服', 
     prescription_on: DateTime.now - 10, 
     note: '', 
@@ -172,20 +205,49 @@ medication_history1 = MedicationHistory.create(
 )
 
 pharmacy1 = Pharmacy.create(
-  name: 'pharmacy1', 
+  name: '薬局１', 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
+  tel: 123456789, 
   medication_history_id: medication_history1.id
 )
 
 pharmacy2 = Pharmacy.create(
-  name: 'pharmacy1', 
+  name: '薬局２', 
   address: Faker::Address.city, 
-  tel: Faker::PhoneNumber.phone_number, 
-  medication_history_id: MedicalHistory.second
+  tel: 123456789, 
+  medication_history_id: medication_history2.id
 )
 
-medication_history2 = 5.times do |n|
+
+Pharmacy.create(
+  name: '薬局３', 
+  address: Faker::Address.city, 
+  tel: 123456789, 
+  medication_history_id: medication_history3.id
+)
+
+pharmacy3 =Pharmacy.create(
+  name: '薬局３', 
+  address: Faker::Address.city, 
+  tel: 123456789, 
+  medication_history_id: medication_history3.id
+)
+
+pharmacy4 = Pharmacy.create(
+  name: '薬局４', 
+  address: Faker::Address.city, 
+  tel: 123456789, 
+  medication_history_id: medication_history4.id
+)
+
+pharmacy5 = Pharmacy.create(
+  name: '薬局５', 
+  address: Faker::Address.city, 
+  tel: 123456789, 
+  medication_history_id: medication_history5.id
+)
+
+5.times do |n|
 MedicationHistory.create(
     name: "medication#{n+1}", 
     usage: '内服', 
@@ -195,7 +257,7 @@ MedicationHistory.create(
   )
 end
 
-medication_history3 = 5.times do |n|
+5.times do |n|
 MedicationHistory.create(
     name: "medication#{n}", 
     usage: '内服', 
@@ -205,14 +267,7 @@ MedicationHistory.create(
   )
 end
 
-# Pharmacy.create(
-#   name: 'pharmacy3', 
-#   address: Faker::Address.city, 
-#   tel: Faker::PhoneNumber.phone_number, 
-#   medication_history_id: medication_history3.ids
-# )
-
-medication_history4 = 5.times do |n|
+5.times do |n|
 MedicationHistory.create(
     name: "medication#{n}", 
     usage: '内服', 
@@ -222,17 +277,16 @@ MedicationHistory.create(
   )
 end
 
-# Pharmacy.create(
-#   name: 'pharmacy4', 
-#   address: Faker::Address.city, 
-#   tel: Faker::PhoneNumber.phone_number, 
-#   medication_history_id: medication_history4.id
-# )
-
 family1 = Family.create(
   name: Faker::Name.last_name , 
   image:Rails.root.join("db/fixtures/images/family.png").open,
   user_id: user1.id
+)
+
+family2 = Family.create(
+  name: Faker::Name.last_name , 
+  image:Rails.root.join("db/fixtures/images/family.png").open,
+  user_id: user2.id
 )
 
 5.times do |n|
@@ -260,6 +314,11 @@ Member.create(
 Member.create(
   family_id: family1.id,
   user_id: admin_user.id
+)
+
+Member.create(
+  family_id: family2.id,
+  user_id: user1.id
 )
 
 diary1 = Diary.create(
