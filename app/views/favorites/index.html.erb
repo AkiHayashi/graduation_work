@@ -2,14 +2,11 @@
 
 <br>
 <br>
-<% unless @diaries.nil? %>
+<% if @diaries == [] %>
 <h3>まだ日記の投稿はありません</h3>
+<br>
+<br>
 <% end %>
-<br>
-<br>
-<br>
-<br>
-
 
 <div class="row">
   <% @diaries.each do |diary| %>
