@@ -5,6 +5,7 @@ class DiariesController < ApplicationController
 
   # GET /diaries
   def index
+    @diaries = current_user.diaries.order(created_at: "ASC")
     if current_user.families.exists?
       @families = current_user.families
       @members = []
@@ -12,8 +13,6 @@ class DiariesController < ApplicationController
       @family_members_ids = @members.flatten.map(&:user_id)
       @diaries = Diary.where(user_id: @family_members_ids ).order(created_at: "ASC")
     end
-    
-    @diaries = current_user.diaries.order(created_at: "ASC")
   end
 
   # GET /diaries/1
