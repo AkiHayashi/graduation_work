@@ -16,8 +16,9 @@
   <%= image_tag @diary.image.url, size: '550x550' %>
 </p>
 <% end %>
-
-<%= link_to 'この日記を編集する', edit_diary_path(@diary), class:"btn btn-outline-primary"%>
+<% if @diary.user.id == current_user.id %>
+  <%= link_to 'この日記を編集する', edit_diary_path(@diary), class:"btn btn-outline-primary"%>
+<% end %>
 <br>
 <br>
 <br>
