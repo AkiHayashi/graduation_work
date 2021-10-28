@@ -22,9 +22,9 @@
       <%= a.file_field :icon, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
       <%= a.hidden_field :icon_cache %>
       <% if @user.account.icon? %>
-        <%= image_tag @user.account.icon.url, id: 'preview', class: "icon", alt: "ユーザーアイコン", size: '300x200'%> 
+        <%= image_tag @user.account.icon.url, id: 'preview', class: "icon", alt: "ユーザーアイコン", size: '300x300'%> 
       <% else %>
-        <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", id: "preview" %>
+        <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", id: "preview",  size: '300x300'%>
       <% end %>
     </div>
     <div class="field">
