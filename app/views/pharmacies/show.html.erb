@@ -18,5 +18,9 @@
   <%= @pharmacy.medication_history.name %>
 </p>
 
-<%= link_to '薬局の情報を編集する', edit_pharmacy_path(@pharmacy) %> 
-<%= link_to '薬局の一覧へ戻る', pharmacies_path %>
+<%= link_to '薬局の情報を編集する', edit_pharmacy_path(@pharmacy),class:"btn btn-outline-primary" %>
+<br> 
+<br> 
+<div class="btn btn-border">
+  <%= link_to '薬局の一覧へ戻る', pharmacies_path %>
+</div>
