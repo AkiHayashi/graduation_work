@@ -20,7 +20,13 @@
 /node_modules
 /yarn-error.log
 
-/public/assets
+/public/assets/rails_admin
+public/assets/.sprockets-manifest-77a71f77844b8e56e0274e999bc341aa.json
+public/assets/application-857a37a0fca9b0751f7cbcdb837dd77ed297b524faba92d0602e7c7cede50716.css
+public/assets/application-857a37a0fca9b0751f7cbcdb837dd77ed297b524faba92d0602e7c7cede50716.css.gz
+public/assets/application-ffd39caf1424c8085bdb2443bd26afc8cc69f19e95bb1f82e710978ed4dbc21f.js
+public/assets/application-ffd39caf1424c8085bdb2443bd26afc8cc69f19e95bb1f82e710978ed4dbc21f.js.gz
+
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
