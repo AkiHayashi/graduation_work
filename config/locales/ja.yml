@@ -31,7 +31,9 @@ ja:
     hints:
       defaults:
         login_name: '全角のカタカナ・ひらがな・英語で入力してください。'
-    #     password: 'No special characters, please.'
+        password: '六文字以上で入力してください。'
+        password_confirmation: '再度同じパスワードを入力してください。'
+        tel: 'ハイフン無しで入力してください。'
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'
