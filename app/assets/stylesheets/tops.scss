@@ -87,6 +87,15 @@ input[type="password"] {
   height: 40px;
 }
 
+select {
+  width: 150px;
+  height: 80px;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px !important;
+  range: 100px;
+}
+
 .to_right{
   margin-top: 1rem;
   text-align: right;
