@@ -48,15 +48,52 @@ ul {
   list-style: none;
 }
 
+.simple_form {
+  float: none;
+  text-align : center;
+}
+
+.simple_form input[type="text"] {
+  margin-bottom: 10px !important;
+  margin: 2px 10px;
+  display: inline-block;
+  width: 400px;
+  height: 60px;
+}
+
+.simple_form input[type="password"] {
+  margin-bottom: 10px;
+  margin: 2px 10px;
+  display: inline-block;
+  width: 400px;
+  height: 40px;
+}
+
+.simple_form .numeric {
+  margin-bottom: 10px !important;
+  margin: 2px 10px;
+  display: inline-block;
+  width: 400px;
+  height: 60px;
+}
+
 input[type="text"] {
   width: 400px;
   height: 60px;
 }
 
-
 input[type="password"] {
   width: 300px;
   height: 40px;
+}
+
+select {
+  width: 150px;
+  height: 80px;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px !important;
+  range: 100px;
 }
 
 .to_right{

@@ -1,59 +1,81 @@
 <h2><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+
+  <br />
+  <br />
   <div class="field">
-      <%= f.label :login_name %><br />
-      <em>全角ひらがな、全角カタカナ、漢字で入力してください</em> <br />
-    <%= f.text_field :login_name, autofocus: true, placeholder: "アプリを使うときのお名前" %>
+    <%= f.input :login_name, autofocus: true, placeholder: "アプリを使うときのお名前" %>
   </div>
 
+  <br />
+  <br />
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "******"%>
+    <%= f.input :password, autocomplete: "new-password", placeholder: "******"%>
   </div>
 
+  <br />
+  <br />
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <em>再度同じパスワードを入力してください</em><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******"%>
+    <%= f.input :password_confirmation, autocomplete: "new-password", placeholder: "******"%>
   </div>
 
-  <%= f.fields_for :account do |a| %>
+  <%= f.fields_for :account do |f| %>
+
+    <br />
+    <br />
     <div class="field">
-      <%= a.label :name %><br />
-      <%= a.text_field :name, placeholder: "本名" %>
+      <%= f.input :name, placeholder: "本名" %>
     </div>
+
+    <br />
+    <br />
     <div class="field">
-      <%= a.label :birth_date %><br />
-      <%= a.date_field :birth_date %>
+      <%= f.input :birth_date, {start_year:Time.now.year-100, end_year:Time.now.year, prompt:'選択してください'} %>
     </div>
-    <div class="field">
-      <%= a.label :icon %><br />
-      <%= a.file_field :icon %>
+
+    <br />
+    <br />
+    <div>
+      <%= f.file_field :icon, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
+      <%= f.hidden_field :icon_cache %>
+      <% if @user.account.icon? %>
+        <%= image_tag @user.account.icon.url, id: 'preview', class: "icon", alt: "ユーザーアイコン", size: '300x300'%> 
+      <% else %>
+        <%= image_tag "default.png", class: "icon", alt: "ユーザーアイコン", id: "preview",  size: '300x300'%>
+      <% end %>
     </div>
+      
+    <br />
+    <br />
     <div class="field">
-      <%= a.label :mail %><br />
-      <%= a.text_field :mail , placeholder: "abc＠exmple.com"%>
+      <%= f.input :mail , placeholder: "abc＠exmple.com"%>
     </div>
+
+    <br />
+    <br />
     <div class="field">
-      <%= a.label :address %><br />
-      <%= a.text_field :address, placeholder: "東京都" %>
+      <%= f.input :address, placeholder: "東京都" %>
     </div>
+
+    <br />
+    <br />
     <div class="field">
-      <%= a.label :tel %><br />
-      <%= a.telephone_field :tel, placeholder: "0123456789" %>
+      <%= f.input :tel, placeholder: "0123456789" %>
     </div>
+
+    <br />
+    <br />
     <div class="field">
-      <%= a.label :allergy %><br />
-      <%= a.select :allergy, Account.allergies.keys.to_a,{} %>
+      <%= f.label :allergy%><br />
+      <%= f.select :allergy, Account.allergies.keys.to_a,{} %>
     </div>
   <% end %>
 
+    <br />
   <div class="actions">
     <%= f.submit t('.sign_up'), class:"submit-button" %>
   </div>
