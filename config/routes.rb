@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
   
-  resources :users, only: [:show]
+  resources :users, only: %w(show)
   resources :families do 
     resources :members, only: %w(create destroy)
     member do
