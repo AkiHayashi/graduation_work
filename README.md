@@ -51,7 +51,8 @@ https://docs.google.com/spreadsheets/d/1ieDsPJ3pi0R-L1Df2Mvykc9OuBafNZU0Q_hPmwap
 https://drive.google.com/file/d/1438npm9cS5p_Hplj3XxPDUO9DvvXU4l_/view?usp=sharing
 
 # 画面遷移図
-<img width="1381" alt="スクリーンショット 2021-10-01 2 06 44" src="https://user-images.githubusercontent.com/86763078/135500177-4df0b1aa-5e8d-4593-8ced-e56ac322ec2c.png">
+![画面遷移図](https://user-images.githubusercontent.com/86763078/142723494-9c5a35bd-8da9-4698-a85e-450324b92b61.jpeg)
+
 
 https://drive.google.com/file/d/19bT4a8lpiwQTzAdKbaFOrOovkNMfg4N0/view?usp=sharing
 
