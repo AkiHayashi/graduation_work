@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'tops#index'
-  get 'tops/menu'
-  get 'lists/index'
+  root to: 'tops#index'
+  get '/introduction', to: 'tops#introduction'
+  get '/mypage', to: 'lists#index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users, controllers: {
@@ -14,9 +15,9 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
   
-  resources :users, only: [:show]
+  resources :users, only: %i[show]
   resources :families do 
-    resources :members, only: %w(create destroy)
+    resources :members, only: %i[create destroy]
     member do
       get 'menu'
     end
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
       get 'menu'
     end
   end
-  resources :favorites, only: [:index, :create, :destroy]
+  resources :favorites, only: %i[index create destroy]
   resources :health_statuses do 
     member do
       get 'menu'
@@ -39,6 +40,6 @@ Rails.application.routes.draw do
   end
   
   if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
 end
