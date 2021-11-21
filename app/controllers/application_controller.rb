@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    lists_index_path(resource)
+    mypage_path(resource)
   end
 
   def ensure_current_user

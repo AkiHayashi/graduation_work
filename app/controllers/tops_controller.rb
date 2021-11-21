@@ -2,6 +2,6 @@ class TopsController < ApplicationController
   def index
   end
   
-  def menu
+  def introduction
   end
 end
