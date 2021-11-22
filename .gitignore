@@ -35,3 +35,4 @@ public/assets/application-ffd39caf1424c8085bdb2443bd26afc8cc69f19e95bb1f82e71097
 /public/uploads
 
 .env
+.DS_Store
