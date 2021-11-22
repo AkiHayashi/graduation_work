@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @families.each do |family| %>
+    <% current_user.families.each do |family| %>
       <tr>
         <td><%= family.name %><p>家</p></td>
         <td><%= image_tag family.image.url, size: '400x300'%></td>

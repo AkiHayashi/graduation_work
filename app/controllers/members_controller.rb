@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :email_exist?, only: [:create]
-  before_action :user_exist?, only: [:create]
+  before_action :email_exist?, only: %i[create]
+  before_action :user_exist?, only: %i[create]
 
   def create
     family = find_family(params[:family_id])
