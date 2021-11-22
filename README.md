@@ -46,7 +46,8 @@ https://docs.google.com/spreadsheets/d/1k5BHHBwklYWPGWwMWZK2a5SpIGAjNh6hzA2I8NlU
 https://docs.google.com/spreadsheets/d/1ieDsPJ3pi0R-L1Df2Mvykc9OuBafNZU0Q_hPmwapl40/edit?usp=sharing
 
 # ER図
-![ER図](https://user-images.githubusercontent.com/86763078/142723578-69177cfc-2fa3-4efb-ab96-b8c1cc933e71.jpg)
+![ER図](https://user-images.githubusercontent.com/86763078/142825787-eabcddbd-4dbc-4ec5-a2ec-775e202c9889.jpg)
+
 
 https://drive.google.com/file/d/1438npm9cS5p_Hplj3XxPDUO9DvvXU4l_/view?usp=sharing
 
