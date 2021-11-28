@@ -133,28 +133,8 @@ select {
 }
 
 // ---------- button design ----------
-.btn-border {
-  border: 2px solid #122c49 !important;
-  border-radius: 0;
-  background: #fff;
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: 4px 4px 0 #000;
-}
 
-.btn-border a {
-  text-decoration: none;
-  color: #122c49;
-  font-size: large;
-  text-align: center;
-  display: inline-block;
-}
-
-.btn-border:hover {
-  -webkit-box-shadow: -4px -4px 0 #000;
-  box-shadow: -4px -4px 0 #000;
-}
-
-.submit-button {
+.button {
   margin: 1rem;
   display       : inline-block;
   // border-radius : 30% !important;          /* 角丸       */
@@ -168,8 +148,9 @@ select {
   transition    : .3s;         /* なめらか変化 */
   box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
   border        : 2px solid #3e214c !important;    /* 枠の指定 */
+  text-decoration: none;
 }
-.submit-button:hover {
+.button:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #3e214c !important;
   background    : #ffffff !important; 

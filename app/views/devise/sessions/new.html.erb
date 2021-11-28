@@ -19,11 +19,9 @@
   <%# <% end %> 
 
   <div class="form-actions">
-    <%= f.submit t('.sign_in'), class:"submit-button" %>
+    <%= f.submit t('.sign_in'), class:"button" %>
   </div>
 <% end %>
 
 <p class="confirm_account">はじめてアプリをご利用される方はこちら</p>
-<div class="btn btn-border adjust">
-  <a><%= render "devise/shared/links" %></a>
-</div>
+<%= link_to "新規登録", new_user_registration_path, class:"button adjust" %>

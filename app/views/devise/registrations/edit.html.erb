@@ -84,13 +84,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('.update'), class:" submit-button" %>
+    <%= f.submit t('.update'), class:" button" %>
   </div>
 <% end %>
 
-<div class="btn btn-border">
-  <%= link_to t('devise.shared.links.back'), :back %>
-</div>
+
+<%= link_to t('devise.shared.links.back'), :back, class: "button" %>
 
 <br><br><br><br><br><br>
 <h3><%= t('.cancel_my_account') %></h3>
