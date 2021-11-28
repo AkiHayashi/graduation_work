@@ -77,12 +77,10 @@
 
     <br />
   <div class="actions">
-    <%= f.submit t('.sign_up'), class:"submit-button" %>
+    <%= f.submit t('.sign_up'), class:"button" %>
   </div>
 <% end %>
 
 
 <p class="confirm_account">すでにアカウントをお持ちですか？</p>
-<div class="btn btn-border">
-  <a><%= render "devise/shared/links" %></a>
-</div>
+<%= link_to "ログイン", new_user_session_path , class: "button"%>
