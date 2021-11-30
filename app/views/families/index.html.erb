@@ -14,13 +14,12 @@
       <tr>
         <td><%= family.name %><p>家</p></td>
         <td><%= image_tag family.image.url, size: '400x300'%></td>
-        <td><div class="btn btn-border"><%= link_to 'この家族のページへ', family %></td></div>
+        <td><%= link_to 'この家族のページへ', family, class:"btn btn-outline-success" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<div class="btn btn-border">
-<%= link_to '新しい家族を作成する', new_family_path %></div>
+<br />
+<h5 id = fam >家族のグループを追加しますか？</h5>
+<%= link_to '新しい家族を作成する', new_family_path, class:'button' %>

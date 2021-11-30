@@ -156,6 +156,10 @@ select {
   background    : #ffffff !important; 
 }
 
+.item {
+  min-width: 300px;
+}
+
 .adjust{
   padding-top: 30px !important;
 }
@@ -347,4 +351,9 @@ select {
     width: 80%;
     margin: auto;
     padding-bottom: 100px;
+  }
+
+// ----------family page ----------
+  #fam {
+    padding-top: 100px;
   }
